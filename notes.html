@@ -8,6 +8,9 @@
   </head>
   <body>
     <header>
+      <div id="skip">
+        <a href="#content">Skip Navigation</a>
+    </div>
     <nav>
       <ul role="list">
       <li><a href="index.html">ChelseA11y Learning</a></li>
@@ -19,20 +22,22 @@
     </header>
 
     <main>
-    <h1>Notes</h1>
+    <h1 id="content">Notes</h1>
     <p>Notes are inward-facing summaries of and engagement with new information.</p>
     <p>Please don't directly use my notes to learn from. Read the things I link to, and then maybe enjoy some of my commentary! But the main audience of the things here is intended to be me.</p>
     <hr>
     <h2 id="contents">Contents</h2>
     <ul class="notes-menu">
+      <li>2024-10-21 <a href="#note-27">Deque University 6/6</a></li>
+
       <li>2024-10-17 <a href="#note-27">Access Trauma and Aesthetics</a></li>
       <li>2024-10-16 <a href="#note-26">Articles and Shmarticles</a></li>
-      <li>2024-10-15 <a href="#note-25">Deque University 5/5</a></li>
-      <li>2024-10-12 <a href="#note-24">Deque University 4/5</a></li>
+      <li>2024-10-15 <a href="#note-25">Deque University 5/6</a></li>
+      <li>2024-10-12 <a href="#note-24">Deque University 4/6</a></li>
       <li>2024-10-12 <a href="#note-23">Preparing for a Potential Client</a></li>
-      <li>2024-10-11 <a href="#note-22">Deque University 3/5</a></li>
-      <li>2024-10-10 <a href="#note-21">Deque University 2/5</a></li>
-      <li>2024-10-09 <a href="#note-20">Deque University 1/5</a></li>
+      <li>2024-10-11 <a href="#note-22">Deque University 3/6</a></li>
+      <li>2024-10-10 <a href="#note-21">Deque University 2/6</a></li>
+      <li>2024-10-09 <a href="#note-20">Deque University 1/6</a></li>
       <li>2024-10-08 <a href="#note-19">WAI-ARIA. Take #2. Part 2.</a></li>
       <li>2024-10-07 <a href="#note-18">WAI-ARIA. Take 2. Part 1.</a></li>
       <li>2024-10-04 <a href="#note-17">On Neurodivergent Learning</a></li>
@@ -67,6 +72,163 @@
 
 
     -->
+
+    <hr>
+    <h2 id="note-28">Deque University 6/6</h2>
+    <p>Noted October 21, 2024</p>
+
+    <h3>
+      Scoping Table Headers
+    </h3>
+    <p>It is not enough to simply designate some row or col through table headers. You also have to establish which data that row or col is associated with using the parameter of 'scope.' All data also needs to have the scope of 'row' or 'col' to work.</p>
+    <p>This is bit confusing for me, so I'm going to try to do it myself. I've created a small spreadsheet in LibreOffice Calc, and I'm going to try to recreate it in HTML according to accessible standards.</p>
+
+    <table>
+      <caption>Ugly Paper Crane Tally</caption>
+      <thead>
+        <td colspan="2">&nbsp;</td>
+        <th scope="col">Cardstock</th>
+        <th scope="col">Origami</th>
+        <th scope="col">Tissue</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="rowgroup" rowspan="3">Summer Tones</th>
+          <th scope="row">Red</th>
+          <td>50</td>
+          <td>22</td>
+          <td>34</td>
+        </tr>
+        <tr>
+          <th scope="row">Orange</th>
+          <td>12</td>
+          <td>14</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <th scope="row">Yellow</th>
+          <td>23</td>
+          <td>2</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <th scope="rowgroup" rowspan="2">Winter Tones</th>
+          <th scope="row">Green</th>
+          <td>65</td>
+          <td>6</td>
+          <td>35</td>
+        </tr>
+        <tr>
+          <th scope="row">Blue</th>
+          <td>33</td>
+          <td>7</td>
+          <td>34</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>This is pretty ugly, so let's practice CSS styling and get this looking spiffy.</p>
+
+
+    <table class="pretty">
+      <caption>Pretty  Paper Crane Tally</caption>
+      <thead>
+        <td class="empty">&nbsp;</td>
+        <td class="empty">&nbsp;</td>
+        <th scope="col">Cardstock</th>
+        <th scope="col">Origami</th>
+        <th scope="col">Tissue</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="rowgroup" rowspan="3">Summer Tones</th>
+          <th scope="row">Red</th>
+          <td>50</td>
+          <td>22</td>
+          <td>34</td>
+        </tr>
+        <tr>
+          <th scope="row">Orange</th>
+          <td>12</td>
+          <td>14</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <th scope="row">Yellow</th>
+          <td>23</td>
+          <td>2</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <th scope="rowgroup" rowspan="2">Winter Tones</th>
+          <th scope="row">Green</th>
+          <td>65</td>
+          <td>6</td>
+          <td>35</td>
+        </tr>
+        <tr>
+          <th scope="row">Blue</th>
+          <td>33</td>
+          <td>7</td>
+          <td>34</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Okay, it isn't exactly amazing but it works and now I know about cool CSS selector tricks like :nth-child and :first-child and :not(), so I think it was worth it. </p>
+
+    <p>Deque also shows how to associate certain cells with heading using the headers attribute, linking directly to each table heading's id.</p>
+
+    <p>Additionally, nested tables breaking table heading and scope functionality so do NOT use them.</p>
+
+    <h3>Table Summaries</h3>
+    <p>A table summary is meant to improve understandability. Deque orients this towards SR users, but likely everyone can benefit from this. It lists a couple techniques that can be used to support this: putting it in figure's figcaption (pair with aria-labbeledby on the table itself), putting it in the caption element, visually hiding it, and associating a description with the table through aria-describedby.</p>
+    <p>I'm incredibly suprised to learn that the "presentation" role exists. Harm reduction, I suppose. </p>
+
+    <h3>Iframes</h3>
+    <p>I know zero things about this. Should be fun!</p>
+    <p>Iframes need a title. I feel like this is definitely something I've looked past before.</p>
+    <p>Okay, I'm a bit bamboozled. There's a second page on titles that says the source page of the iframe must have a valid title (they're using MUST here, so it's WCAG). But we can't control some of these. It seems like this is specified because of JAWS behaviour. I'm kinda bamboozled, need to consult external sources.</p>
+    <p>The wording is a little bit weird, but in a different section of Deque, they basically say that this weird behaviour is mostly concerned with documents. So documents also need an accessible name, and it should ideally be the same one as you put in the title attribute just so experience is the same across the board. I don't have JAWS so I can't test to see if this behaviour still persists.</p>
+    <p>The thing about trying to preserve heading hierarchy between the child iframe and the parent website seems a bit strange. Say I was hosting a pdf file on my website, and just wanted to show a preview using an iframe. Should I mess with all the heading structure of the pdf just so that the iframe hierarchy structure should be presersved? This just leaves a really odd experience to anyone who uses the pdf file on its own, not in the context of the document. I'm sure it applies to some cases, but it feels weird.</p>
+    <p>Use aria-hidden="true" for meaningless iframes. I feel like there should also be a bypass mechanism. </p>
+
+    <h3>Not-so-useful Semantic Elements</h3>
+    <p>I've never in my life heard of the 'q' element before. I'm also so surprised that their section on blockquotes is so sparse. Adrian and Heydon's guides are much more comprehensible, and illustrate how complex this element actual is below the surface.</p>
+    <p>There's also a note on the code element. I am very bad at the code element. I write everything in raw HTML and the code element makes me backspace and double check that everything is oriented properly-- it's just a hassle. I genuinely think that if I insisted tagging every instance of code on the website by hand, it would make me want to not post to this website any more.</p>
+    <p>The pre element is suggested to accompany large blocks of code. I've also never heard of pre. I'm excited to see it whenever it pops up in Heydon Pickering's HTML elements guide.</p>
+
+    <p>del and ins should be used for strikethroughs and additions but must be supplemented with visually hidden text or some other kind of mechanism. The mark element is the same for highlighted text. Make sure visually hidden supplements are available for critical instances of these things.</p>
+
+    <h3>Good Markup Practices</h3>
+    <p>These were once all considered essential to meet 4.1.1 but now that's deprecated. Deque has preserved the pages relevant to this for posterity.</p>
+    <ul>
+      <li>ids should be unique on a page. This is also good for satisfying Name, Role, Value.</li>
+    <li>Parent-child relationships are good. This is apparently most impactful when the ARIA roles are misaligned somehow.</li>
+    <li>Don't use deprecated elements and attributes. Interesting how width as an attribute is deprecated on td and th, but is valid as a style.</li>
+    </ul>
+
+    <h3>Interlude: Course Complete!</h3>
+    <p>I'm officially done the Semantic Structure and Navigation course. I'm going to just zoom through one of the easier ones now on Accessibility Fundamentals. I've covered a good part of this material already through other courses, but I suppose this is also a good course to just zoom past and secure the certificate.</p>
+
+    <h3>Disability Fundamentals</h3>
+    <p>It's pretty exhausting that every single instance of a Disabled person using tech has to somehow make the additional point that the Disabled person has thus 'overcome' their disability in some capacity. And that metric is decided by their ability to participate in civil society. Why can't some non-extroardinary people real people feature in these examples?</p>
+    <p>This all just feel very outdated and like it was designed by people who don't know the field of Disability Studies, which is what my background is somewhat in. Much less Crip Studies.</p>
+    <p>COGA goes far beyond just the one example they gave of Down Syndrome. It also betrays the reality of most folks with intelectual disability. Most of them don't have any particular diagnosis beyond the state of 'intellectual disability' generally, which is defined via a IQ test. If there was any place to give a wealth of different examples, this would have been the place.</p>
+    <p>Meh. I have notes. They need to hire someone from the humanities to have at this course.</p>
+
+    <h3>Distinguishing Links from Text</h3>
+    <p>The wording here is a little ambiguous, whether it is necessary to provide a hover style that is not just a change in colour. It definitley is the case for links, I just don't know about hover styles. Is this WCAG?</p>
+    <p><a href="https://www.tpgi.com/a-whole-lot-of-bovver-over-hover/">Ian Llyod of TPGi</a> makes the case that it is not a WCAG failure, as the hover is not seen as essential functioning. People can only trigger hover by moving their mouse to the required thing. Maybe if everyone was operating system with invisible mouses, this would be a requirement. But that isn't the case, so Ian doesn't think it fails any of the Contrast SC. Focus indicators, on the other hand, can fail Non-text Contrast.</p>
+    <p>In other words, I don't need to fix the Hover style on this website!</p>
+    <p>Deque also gives another friendly reminder that navigation menus are an exception for underlined links.</p>
+
+    <h3>Interlude: My Website Needs a Skip Link</h3>
+    <p>Rolling up my sleeves here. I've been putting it off because it looks scary. But I think it's time.</p>
+
+    <p><a href="#contents">Back to Notes contents.</a></p>
+
+
 
     <hr>
     <h2 id="note-27">Access Trauma and the Aesthetic World</h2>
@@ -133,7 +295,7 @@
 
 
     <hr>
-    <h2 id="note-25">Deque University 5/5</h2>
+    <h2 id="note-25">Deque University 5/6</h2>
     <p>Noted October 15, 2024</p>
     <p>Back after a long weekend. Let's get cracking, lads!</p>
     <h3>Single-Key Shortcuts</h3>
@@ -150,7 +312,7 @@
 
 
     <hr>
-    <h2 id="note-24">Deque University 4/5</h2>
+    <h2 id="note-24">Deque University 4/6</h2>
     <p>Noted October 12, 2024</p>
 
     <h3>Showing the Current Page</h3>
@@ -195,7 +357,7 @@
 
 
     <hr>
-    <h2 id="note-22">Deque University 3/5</h2>
+    <h2 id="note-22">Deque University 3/6</h2>
     <p>Noted October 11, 2024</p>
 
     <h3>span links</h3>
@@ -231,7 +393,7 @@
 
 
     <hr>
-    <h2 id="note-21">Deque University 2/5</h2>
+    <h2 id="note-21">Deque University 2/6</h2>
     <p>Noted October 10, 2024</p>
 
     <h3>h1 comments</h3>
@@ -242,7 +404,7 @@
 
 
     <hr>
-    <h2 id="note-20">Deque University 1/5</h2>
+    <h2 id="note-20">Deque University 1/6</h2>
     <p>Noted October 9, 2024</p>
 
     <p>I'm getting lazier about recording down the progress of my learning. I've started on the module titled Semantic Strucuture and Navigation. Here are some things I'm struggling with:</p>
