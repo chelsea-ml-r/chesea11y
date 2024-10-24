@@ -28,16 +28,16 @@
     <hr>
     <h2 id="contents">Contents</h2>
     <ul class="notes-menu">
-      <li>2024-10-21 <a href="#note-27">Deque University 6/6</a></li>
-
+      <li>2024-10-22 <a href="#note-29">Deque University 7/7</a></li>
+      <li>2024-10-21 <a href="#note-28">Deque University 6/7</a></li>
       <li>2024-10-17 <a href="#note-27">Access Trauma and Aesthetics</a></li>
       <li>2024-10-16 <a href="#note-26">Articles and Shmarticles</a></li>
-      <li>2024-10-15 <a href="#note-25">Deque University 5/6</a></li>
-      <li>2024-10-12 <a href="#note-24">Deque University 4/6</a></li>
+      <li>2024-10-15 <a href="#note-25">Deque University 5/7</a></li>
+      <li>2024-10-12 <a href="#note-24">Deque University 4/7</a></li>
       <li>2024-10-12 <a href="#note-23">Preparing for a Potential Client</a></li>
-      <li>2024-10-11 <a href="#note-22">Deque University 3/6</a></li>
-      <li>2024-10-10 <a href="#note-21">Deque University 2/6</a></li>
-      <li>2024-10-09 <a href="#note-20">Deque University 1/6</a></li>
+      <li>2024-10-11 <a href="#note-22">Deque University 3/7</a></li>
+      <li>2024-10-10 <a href="#note-21">Deque University 2/7</a></li>
+      <li>2024-10-09 <a href="#note-20">Deque University 1/7</a></li>
       <li>2024-10-08 <a href="#note-19">WAI-ARIA. Take #2. Part 2.</a></li>
       <li>2024-10-07 <a href="#note-18">WAI-ARIA. Take 2. Part 1.</a></li>
       <li>2024-10-04 <a href="#note-17">On Neurodivergent Learning</a></li>
@@ -72,9 +72,26 @@
 
 
     -->
+    <hr>
+    <h2 id="note-29">Deque University 7/7</h2>
+    <p>Noted October 22, 2024</p>
+
+    <h3>So What Exactly is Button?</h3>
+    <p>Buttons should be distinguishable from text, Deque says. But the example they give is four icons that have text to them. Two of these icons are a gear icon with the text 'Settings' and a envelope with the text 'Contact Us.' These look like links to me. But maybe some links are buttons. I am rather confused.</p>
+    <p>I would have thought that a button uses the button html element. Or a div or link using aria roles. But crucially, it activates a change of state on the page, right? Let's research.</p>
+
+    <p><a href="https://a11y-101.com/design/button-vs-link">A11Y-101's article 'Button vs Link'</a> is basically what I described and conforms to my expectations. They elaborate that some CSS frameworks can steer developers into conflating the two of them and make the argument that buttons and links should be visually distinct.</p>
+
+    <p><a href="https://yatil.net/blog/buttons-vs-links">Eric Eggert's article on Buttons vs Links</a> has the headline: No, they are not the same. He notes a couple of cool behaviours. For example, buttons can be activated with a space, links cannot. Buttons don't come up on screenreaders when they fetch a list of all links. Buttons use a normal mouse pointer on hover, use a pointing hand mouse on hover. In terms of styling, Eric recommends some kind of visual distinction, but he isn't as particular. Descriptive text for functionality is more important for users to understand where they are going.</p>
+
+    <p>Stepping back for a moment, I suppose my concern stems from Deque using 'button' to refer to something that really does look like a link. It might just be an oversight. But I think if it is, it's revealing a commonly tolerated inprecision in language that probably perpetuates devs using the wrong element, because in common speech, the two are interchangeable. I suppose I'm being influenced by Adrian Roselli's super strict view on language precision in naming patterns and components. I'm sure there are more urgent cases that require addressing, but we can maybe put this on the waiting list.</p>
+
+    <p><a href="#contents">Back to Notes contents.</a></p>
+
+
 
     <hr>
-    <h2 id="note-28">Deque University 6/6</h2>
+    <h2 id="note-28">Deque University 6/7</h2>
     <p>Noted October 21, 2024</p>
 
     <h3>
@@ -295,7 +312,7 @@
 
 
     <hr>
-    <h2 id="note-25">Deque University 5/6</h2>
+    <h2 id="note-25">Deque University 5/7</h2>
     <p>Noted October 15, 2024</p>
     <p>Back after a long weekend. Let's get cracking, lads!</p>
     <h3>Single-Key Shortcuts</h3>
@@ -312,7 +329,7 @@
 
 
     <hr>
-    <h2 id="note-24">Deque University 4/6</h2>
+    <h2 id="note-24">Deque University 4/7</h2>
     <p>Noted October 12, 2024</p>
 
     <h3>Showing the Current Page</h3>
@@ -320,7 +337,7 @@
 
     <h3>Skip Links</h3>
     <p>I was reading the portion on Skip Links and became curious about how it related to SC 2.4.1 Bypass Blocks. Because the keyword that Deque uses for these things is 'should' instead of 'must.' Which means it isn't actually in the WCAG, and this was surprising to me! What else could bypass blocks possibly be solved by? First I read the official wording, <a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html">SC 2.4.1 Bypass Blocks from W3C</a>, and then I read through this <a href="https://github.com/w3c/wcag/issues/1712">Issue thread for 2.4.1 Sufficient Techniques.</a> I totally agree that H69 should be removed as a sufficient technique. Actually I agree most of the sufficient techniques grouped under section 2 are very suspect. Reading through all the a11y people talking about this was quite illuminating.</p>
-    <p>Eric Eggbert in particular had a couple notes about what it means to be listed as a sufficient technique. As did Steven Faulkner.</p>
+    <p>Eric Eggert in particular had a couple notes about what it means to be listed as a sufficient technique. As did Steven Faulkner.</p>
     <p>Something I am still curious about: What if your nav has like 3 items? Should a skip link still be provided? Is it needed? It really doesn't save that much time.</p>
 
     
@@ -357,7 +374,7 @@
 
 
     <hr>
-    <h2 id="note-22">Deque University 3/6</h2>
+    <h2 id="note-22">Deque University 3/7</h2>
     <p>Noted October 11, 2024</p>
 
     <h3>span links</h3>
@@ -393,7 +410,7 @@
 
 
     <hr>
-    <h2 id="note-21">Deque University 2/6</h2>
+    <h2 id="note-21">Deque University 2/7</h2>
     <p>Noted October 10, 2024</p>
 
     <h3>h1 comments</h3>
@@ -404,7 +421,7 @@
 
 
     <hr>
-    <h2 id="note-20">Deque University 1/6</h2>
+    <h2 id="note-20">Deque University 1/7</h2>
     <p>Noted October 9, 2024</p>
 
     <p>I'm getting lazier about recording down the progress of my learning. I've started on the module titled Semantic Strucuture and Navigation. Here are some things I'm struggling with:</p>
@@ -608,7 +625,7 @@
     <p>Jackpot. A best practice guide for title by Amber Hinds titled <a href="https://theadminbar.com/accessibility-weekly/every-page-needs-a-meaningful-and-accurate-title/">Every Page Needs a Meaningful and Accurate Title</a> and it looks like it knows what it is talking about. I love this article, it's so specific! Big Takeaways: need to avoid duplicate titles. I also need to include the website name, and an emdash is an acceptable solution to tier them. I never even thought that this would be an important consideration for results appearing in the 'history' tab. I feel empowered to set proper title attributes for everything in my site! I really should do this across all the sites I author content for.</p>
 
     <h3>Interlude #2</h3>
-    <p>I was checking a site for contrast and was looking at the APCA, because Seirdy recommended it. I looked through the slack for more guidance, backread the logs, and then concluded by reading Eric Eggbert's entry, <a href="https://yatil.net/blog/wcag-3-is-not-ready-yet#so-should-you-use-apca">WCAG 3 is not ready yet</a>. WCAG 2 contrast does need to be reworked. What is the best way it should be reworked? I think Eric makes some very good points and critiques of APCA rollout. In an ideal world, way more resources would be dedicated to W3C and to a11y research so that this area can be researched more. Even the APCA guy admits, that there needs to be so, so much more research. But in the meantime, I'll try to make my site support a dark mode that has enough luminescence so that the content is perceivable.</p>
+    <p>I was checking a site for contrast and was looking at the APCA, because Seirdy recommended it. I looked through the slack for more guidance, backread the logs, and then concluded by reading Eric Eggert's entry, <a href="https://yatil.net/blog/wcag-3-is-not-ready-yet#so-should-you-use-apca">WCAG 3 is not ready yet</a>. WCAG 2 contrast does need to be reworked. What is the best way it should be reworked? I think Eric makes some very good points and critiques of APCA rollout. In an ideal world, way more resources would be dedicated to W3C and to a11y research so that this area can be researched more. Even the APCA guy admits, that there needs to be so, so much more research. But in the meantime, I'll try to make my site support a dark mode that has enough luminescence so that the content is perceivable.</p>
 
     <h3>2. Heydon's Checklist</h3>
     <ul>
