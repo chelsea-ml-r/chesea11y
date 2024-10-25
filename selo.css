@@ -71,6 +71,8 @@
   }
   header {
     background-color: rgb(225, 229, 254);
+    border: 0.25em rgb(225, 229, 254);
+
 
   }
   h1, h2, h3, h4 {
@@ -110,8 +112,7 @@
     max-width: 55ch;
     font-weight: bold;
     border-radius: 0.5em;
-    border: 0.25em black;
-    border-style: groove;
+    border-style: dashed;
     padding: 0 0.5em 0 0.5em;
 
     
