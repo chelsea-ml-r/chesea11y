@@ -1,3 +1,4 @@
+
 @media (prefers-color-scheme: dark) {
   a:focus {
     outline: none;
@@ -167,7 +168,28 @@
   .table-of-contents {
     text-align:left;
     margin-left: -2em;
+  }
 
+  #tc-expanded { /*button to expand/collapse*/
+    padding: 1em;
+    transform: skew(-20deg);
+    background-color:#fac8d1;
+    border-radius: 1.5vh;
+    display: block;
+    text-align: right;
+    margin: 1em auto;
+    opacity: 0.7;
+    
+
+
+  }
+  #tc-expanded:focus, #tc-expanded:hover {
+    opacity:1;
+    outline:none;
+    border:none;
+  }
+  #tc-jump {
+    display:inline;
   }
   
 
@@ -192,14 +214,14 @@
 
 
   /*skip link experiments*/
-  #skip a {
+  .skip a {
     display: block;
     position: absolute;
     left: -999px;
     top: -999px;
     }
 
-#skip a:focus {
+  .skip a:focus {
     left: 0;
     top: 0;
     padding: 0.1em;
