@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Notes — ChelseA11y Learning</title>
     <link rel="stylesheet" href="selo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
   </head>
@@ -33,20 +34,23 @@
     </div>
     <div class="table-of-contents">
     <ul id="contents-ul" class="notes-menu">
+      <li>2024-10-28 <a id="tc-35" href="#note-35">Deque University 8/8</a></li>
+
+      <li>2024-10-27 <a id="tc-34" href="#note-34">CSS Tricks 1/1</a></li>
       <li>2024-10-26 <a id="tc-33" href="#note-33">I Want Pencils</a></li>
       <li>2024-10-25 <a id="tc-32" href="#note-32">Random CSS Moment</a></li>
       <li>2024-10-25 <a id="tc-31" href="#note-31">Learning Speedrun at a Fast Food Chain</a></li>
       <li>2024-10-24 <a id="tc-30" href="#note-30">My First Ever Meeting</a></li>
-      <li>2024-10-22 <a id="tc-29" href="#note-29">Deque University 7/7</a></li>
-      <li>2024-10-21 <a id="tc-28" href="#note-28">Deque University 6/7</a></li>
+      <li>2024-10-22 <a id="tc-29" href="#note-29">Deque University 7/8</a></li>
+      <li>2024-10-21 <a id="tc-28" href="#note-28">Deque University 6/8</a></li>
       <li>2024-10-17 <a id="tc-27" href="#note-27">Access Trauma and Aesthetics</a></li>
       <li>2024-10-16 <a id="tc-26" href="#note-26">Articles and Shmarticles</a></li>
-      <li>2024-10-15 <a id="tc-25" href="#note-25">Deque University 5/7</a></li>
-      <li>2024-10-12 <a id="tc-24" href="#note-24">Deque University 4/7</a></li>
+      <li>2024-10-15 <a id="tc-25" href="#note-25">Deque University 5/8</a></li>
+      <li>2024-10-12 <a id="tc-24" href="#note-24">Deque University 4/8</a></li>
       <li>2024-10-12 <a id="tc-23" href="#note-23">Preparing for a Potential Client</a></li>
-      <li>2024-10-11 <a id="tc-22" href="#note-22">Deque University 3/7</a></li>
-      <li>2024-10-10 <a id="tc-21" href="#note-21">Deque University 2/7</a></li>
-      <li>2024-10-09 <a id="tc-20" href="#note-20">Deque University 1/7</a></li>
+      <li>2024-10-11 <a id="tc-22" href="#note-22">Deque University 3/8</a></li>
+      <li>2024-10-10 <a id="tc-21" href="#note-21">Deque University 2/8</a></li>
+      <li>2024-10-09 <a id="tc-20" href="#note-20">Deque University 1/8</a></li>
       <li>2024-10-08 <a id="tc-19" href="#note-19">WAI-ARIA. Take #2. Part 2.</a></li>
       <li>2024-10-07 <a id="tc-18" href="#note-18">WAI-ARIA. Take 2. Part 1.</a></li>
       <li>2024-10-04 <a id="tc-17" href="#note-17">On Neurodivergent Learning</a></li>
@@ -82,6 +86,33 @@
 
     -->
     <div id="end-of-tc">&nbsp;</div>
+
+    
+
+
+    <hr>
+    <h2 id="note-#">Deque University 8/8</h2>
+    <p>Noted October 28, 20224</p>
+
+    <p>I can definitely design my eraser button to be better. Also it doesn't make sense that the eraser button does the opposite of erase content. It adds content. So maybe I should rethink the functionality of it entirely. I think I actually need it to be a toggle with aria pressed. But today we're doing more Deque.</p>
+
+    <h3>Colour Contrast</h3>
+    <p>For mobile applications, Deque suggests a contrast of 7 to 1. This reminds me that I neeed to fix how my site displays on mobile. Graphics needed to understand content need a contrast of 3 to 1.</p>
+    <p>The contrast of all visual focus indicators against the background must be at least 3 to 1. I actually don't know if my blog has this sufficiently. The default focus style is probably fine, but I've customized the focus style on some components and it might not be enough. My website's dark mode is atrocious.</p>
+    <p>Okay, I didn't know about the size requirement for the WCAG 2.2 focus indicators. My eraser button one hundred percent fails. It also does not have good contrast ratio between the same pixels in the focused and unfocused states. I need to restyle that. I actually need to re-do pretty much every aspect of that whole button.</p>
+    <p>Another component that fails this focus indicator is the focus indicator for page=current. I am actually going to try to fix that now. </p>
+    <p>I already use the outline attribute by default, so I simply made the outline bigger on hover alongside the red underscore. I think this counts as visible because the background contrast between the outline and the background colour of the document is greater than 3 to 1.</p>
+    <p>Reading about the minimum contrast on UI components made me hunker down and change my eraser's styling. I still can't seem to get rid of a faint blue outline that comes in. I think I need to manually remove the user agent default in order for that to happen.</p>
+    <p>Okay interesting. The size rule is actually a Level AAA criterion, not Level AA. Hence why this seemed totally whiplashy. Good to know. </p>
+
+    <p>I wonder if there is an equivelant to WHCM for Linux? Google doesn't give me the answer, but I stumbled into this talk by <a href="https://youtu.be/CJltSqksCn0">Eric Bailey on WHCM</a>.</p>
+
+    <h3>Interlude: Mobile</h3>
+    <p>Set my viewport to accomodate mobile.<p>
+
+    
+    <p><a href="#contents">Back to Notes contents.</a></p>
+
     <hr>
     <h2 id="note-34">CSS Tricks 1/1</h2>
     <p>Noted October 27, 2024</p>
@@ -195,7 +226,7 @@
     <p><a href="#contents">Back to Notes contents.</a></p>
 
     <hr>
-    <h2 id="note-29">Deque University 7/7</h2>
+    <h2 id="note-29">Deque University 7/8</h2>
     <p>Noted October 22, 2024</p>
 
     <h3>So What Exactly is Button?</h3>
@@ -213,7 +244,7 @@
 
 
     <hr>
-    <h2 id="note-28">Deque University 6/7</h2>
+    <h2 id="note-28">Deque University 6/8</h2>
     <p>Noted October 21, 2024</p>
 
     <h3>
@@ -434,7 +465,7 @@
 
 
     <hr>
-    <h2 id="note-25">Deque University 5/7</h2>
+    <h2 id="note-25">Deque University 5/8</h2>
     <p>Noted October 15, 2024</p>
     <p>Back after a long weekend. Let's get cracking, lads!</p>
     <h3>Single-Key Shortcuts</h3>
@@ -451,7 +482,7 @@
 
 
     <hr>
-    <h2 id="note-24">Deque University 4/7</h2>
+    <h2 id="note-24">Deque University 4/8</h2>
     <p>Noted October 12, 2024</p>
 
     <h3>Showing the Current Page</h3>
@@ -496,7 +527,7 @@
 
 
     <hr>
-    <h2 id="note-22">Deque University 3/7</h2>
+    <h2 id="note-22">Deque University 3/8</h2>
     <p>Noted October 11, 2024</p>
 
     <h3>span links</h3>
@@ -532,7 +563,7 @@
 
 
     <hr>
-    <h2 id="note-21">Deque University 2/7</h2>
+    <h2 id="note-21">Deque University 2/8</h2>
     <p>Noted October 10, 2024</p>
 
     <h3>h1 comments</h3>
@@ -543,7 +574,7 @@
 
 
     <hr>
-    <h2 id="note-20">Deque University 1/7</h2>
+    <h2 id="note-20">Deque University 1/8</h2>
     <p>Noted October 9, 2024</p>
 
     <p>I'm getting lazier about recording down the progress of my learning. I've started on the module titled Semantic Strucuture and Navigation. Here are some things I'm struggling with:</p>
