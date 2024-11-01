@@ -129,14 +129,34 @@
       <h3>Motion, Disappearing Content, and Transitions</h3>
       <p>Nice reminder about motion actuation and what that word means. It refers to motion that isn't a pointer gesture (like swiping) or just touching the screen. Rather, this is like shaking your phone to undo, or waving at the camera to get it it to click.</p>
       <p>Don't make interactive content move or disapear.</p>
-      <p>For transitions, keep them to a minimum and make sure they aren't too slow. It can be quite bad for people with cognitive disabilities.</p>
+      <p>For transitions, keep them to a minimum and make sure they aren't too slow. It can be quite bad for people with coMaybe You Don’t Need a Date Picker (added 8 February 2024 because APG added a date picker some time ago and I missed it)gnitive disabilities.</p>
       <p>Deque says to reduce the use of parallax effects and to avoid them if you can, citing vestibular issues. What is a parallax effect?</p>
       <p>From <a href="https://www.w3schools.com/howto/howto_css_parallax.asp">'Parallax Scrolling' from W3Schools</a>, it looks like it refers to an animation effect triggered by scrolling that makes the page look like it has depth. I think this is a situation of 'you'll know it when you see it.'</p>
 
       <p>Module complete!</p>
 
       <h3>Interlude: A JS word counter</h3>
-      <p>Okay I did not do a good job but it did give me what I wanted, roughly. This page now has about 20 thousand words worth of notes on it. Wow. That is not very much.</p>
+      <p>Okay I did not do a good job but it did give me what I wanted, roughly. This page now has about 20 thousand words worth of notes on it. Wow. That is not very much. Or maybe it is. I used to be a humanities major, my judgement is totally skewed.</p>
+
+      <h3><a href="https://adrianroselli.com/">Adrian Roselli</a> Articles</h3>
+
+      <p>I have some extra time as I sit around waiting for children to come trick-or-treating to my door.</p>
+
+      <h4>1. <a href="https://adrianroselli.com/2016/12/be-wary-of-nesting-roles.html">Be Wary of Nesting Roles</a></h4>
+      <p>The title kinda says it all. I didn't know that the interactive elements specifically couldn't be nested inside each other. I kinda figured people didn't do it, but I didn't know it was actually a rule.</p>
+      <p>This really makes me reconsider all the times I've seen people say that they just put tabindex=0 on random things to make keyboard navigation easier. And that is not good! Because by using tabindex=0, you've made something into a interactive component! And now you have poor nesting!</p>
+      <p>Additionally, ARIA roles like button and checkbox, etc, also make these things interactive. So you can definitely create some very nesty situations if you're not careful.</p>
+      
+      <h4>2. <a href="https://adrianroselli.com/2019/02/uncanny-a11y.html"></a>Uncanny A11y</h4>
+      <p>This article describes a set of accessibility interventions that actually end up making the product less accessible than it was initially. The best part of this article is Adrian telling stories about seeing these in the wild. Some of these stories are incredible.</p>
+      <p>tabindex=0 on everything is our first culprit. Adrian has seen devs use it to 'provide keyboard navigation' on native tables. He also describes seeing some people intentionally use positive tabindex values to make the visual layout out of sync with the page order. Bone-chilling, psychopathic!</p>
+      <p>Our second culprit is some class ARIAbuse, in the form of providing hints by aria-label. Adrian gives one incredible example of an accessibility overlay widget that overrides every single link on the page to give 'accesibility help instructions' via an arialabel.</p>
+      <p>Weird alt text patterns is our third culprit. These are the classic offenders: overdescription, redundant 'image of' or 'picture of' or 'logo,' as well as AI-generated alt text. He also points weird punctuation things when images are used inline as a potential offender.</p>
+      <p>Pronounciation overrides are our forth. Just go look at the examples he gives, pure comedic gold!</p>
+      <p>Alack, aria-roledescription, I knew you would show up! Our fifth offender! Using aria-roledescription to provide hints is against the whole use of that spec in the first place.</p>
+      <p>Our fifth is siblings with our sixth offender: Providing unneccesary control instructions. This time, not just restricted to aria-roledescription. Using aria-label will violate 2.5.3. Even if you use a visually hidden class, you cannot write control instructions if you do not know the device. And you do not know your user, or what device (or combination of devices) they are using.</p>
+      <p>The ARIA APG is our sixth offender. Adrian says that he finds himself 'standing in front of rooms of 30 developers at a time on a twice-monthly basis having these conversations' about how the APG are not a standard, and aren't robust, and do not guarantee accessibility.</p>
+
 
 
 
@@ -1367,7 +1387,7 @@
   
 
   </main>
-  <!--<script src="javascript/table-of-contents.js"></script>*/
+  <!--<script src="javascript/table-of-contents.js"></script>
   <script src="javascript/notes-word-counter.js"></script>-->
 
   </body>
