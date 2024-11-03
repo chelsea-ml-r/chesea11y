@@ -34,25 +34,28 @@
     </div>
     <div class="table-of-contents">
     <ul role="list" id="contents-ul" class="notes-menu">
-      <li>2024-10-31 <a id="tc-38" href="#note-38">Deque University 10/10</a></li>
+      <li>2024-11-02 <a id="tc-40" href="#note-40">Deque University 11/11</a></li>
+      <li>2024-11-01 <a id="tc-39" href="#note-39">What Do I Want to Learn?</a></li>
+
+      <li>2024-10-31 <a id="tc-38" href="#note-38">Deque University 10/11</a></li>
       <li>2024-10-30 <a id="tc-37" href="#note-37">Today Might Be a Weekend</a></li>
-      <li>2024-10-29 <a id="tc-36" href="#note-36">Deque University 9/10</a></li>
-      <li>2024-10-28 <a id="tc-35" href="#note-35">Deque University 8/10</a></li>
+      <li>2024-10-29 <a id="tc-36" href="#note-36">Deque University 9/11</a></li>
+      <li>2024-10-28 <a id="tc-35" href="#note-35">Deque University 8/11</a></li>
       <li>2024-10-27 <a id="tc-34" href="#note-34">CSS Tricks 1/1</a></li>
       <li>2024-10-26 <a id="tc-33" href="#note-33">I Want Pencils</a></li>
       <li>2024-10-25 <a id="tc-32" href="#note-32">Random CSS Moment</a></li>
       <li>2024-10-25 <a id="tc-31" href="#note-31">Learning Speedrun at a Fast Food Chain</a></li>
       <li>2024-10-24 <a id="tc-30" href="#note-30">My First Ever Meeting</a></li>
-      <li>2024-10-22 <a id="tc-29" href="#note-29">Deque University 7/10</a></li>
-      <li>2024-10-21 <a id="tc-28" href="#note-28">Deque University 6/10</a></li>
+      <li>2024-10-22 <a id="tc-29" href="#note-29">Deque University 7/11</a></li>
+      <li>2024-10-21 <a id="tc-28" href="#note-28">Deque University 6/11</a></li>
       <li>2024-10-17 <a id="tc-27" href="#note-27">Access Trauma and Aesthetics</a></li>
       <li>2024-10-16 <a id="tc-26" href="#note-26">Articles and Shmarticles</a></li>
-      <li>2024-10-15 <a id="tc-25" href="#note-25">Deque University 5/10</a></li>
-      <li>2024-10-12 <a id="tc-24" href="#note-24">Deque University 4/10</a></li>
+      <li>2024-10-15 <a id="tc-25" href="#note-25">Deque University 5/11</a></li>
+      <li>2024-10-12 <a id="tc-24" href="#note-24">Deque University 4/11</a></li>
       <li>2024-10-12 <a id="tc-23" href="#note-23">Preparing for a Potential Client</a></li>
-      <li>2024-10-11 <a id="tc-22" href="#note-22">Deque University 3/10</a></li>
-      <li>2024-10-10 <a id="tc-21" href="#note-21">Deque University 2/10</a></li>
-      <li>2024-10-09 <a id="tc-20" href="#note-20">Deque University 1/10</a></li>
+      <li>2024-10-11 <a id="tc-22" href="#note-22">Deque University 3/11</a></li>
+      <li>2024-10-10 <a id="tc-21" href="#note-21">Deque University 2/11</a></li>
+      <li>2024-10-09 <a id="tc-20" href="#note-20">Deque University 1/11</a></li>
       <li>2024-10-08 <a id="tc-19" href="#note-19">WAI-ARIA. Take #2. Part 2.</a></li>
       <li>2024-10-07 <a id="tc-18" href="#note-18">WAI-ARIA. Take 2. Part 1.</a></li>
       <li>2024-10-04 <a id="tc-17" href="#note-17">On Neurodivergent Learning</a></li>
@@ -89,12 +92,88 @@
 
 
     -->
-    <div id="end-of-tc">Reminder to self: Failure is a Win Condition.</div>
+    
+    <div id="end-of-tc" class="motto">Reminder to self: Failure is a Win Condition.</div>
+
+      
+    <hr aria-hidden="true"><div class="note">
+    
+      <h2 id="note-40">Maybe it's Not the Weekend: Deque University 11/11</h2>
+      <p>Noted Saturday, November 2, 2024</p>
+  
+      <p>I tend to be most productive when I'm at a fast food establishment at some time with my charger plugged in. Today I have a couple goals. I want to do Deque stuff, and then I want to maybe look at some old websites of mine and start revamping them for accessibility. That way, I can add them to a 'portfolio' of sorts.</p>
+      <h3>Responsive Design</h3>
+      <h4>Background</h4>
+      <p>I see what Deque is trying to get at with the sentence, 'you could kind of say that <em>everyone</em> has low vision, when it comes to mobiles devices' but that kinda trivializes the experience of having low vision. I would phrase it as 'when it comes to mobile, everyone needs the assistive technology known as Zoom,' or something along those lines.</p>
+      <p>Three kinds of Screen Magnification: zoom provided by the browser, zoom provided by the OS, and third-party zooming.</p>
+      <h4>Breakpoints and Media Queries</h4>
+      <p>Media queries in CSS is something I tried to do a couple days ago and it didn't go over very well. Right now, my site has a very simple, mobile-friendly layout. But I do want to test out new layouts with flexbox and grid soon, so these are useful techniques to learn.</p>
+      <ul>
+        <li>Query for the following sizes: max-width 700px, max-width 1060px, and min-width 1061px. These media queries are for phone, tablet and large device respectively.</li>
+        <li>Query for the following media types: 'speech' for screen readers, 'print' for printers, and 'embossed' for braille printers. I feel like some well-intentioning devs querying for speech can totally not account for sighted screen readers though, so use with caution.</li>
+        <li>Other fancy media queries: query for orientation (landscape or portrait). Query for progressive or interlaced scanning. I didn't know what these are: but here's a <a href="https://www.reddit.com/r/explainlikeimfive/comments/vfzzod/eli5_what_is_the_difference_between_interlaced/">'Explain it like I'm Five' post on scanning types</a>. Query based on the aspect ratio of the viewport, based. Query if it's a text-based device like a TTY using 'grid,' query via resolution, and what colour capacity the device has. </li>
+        <li>Make it even more specific by using logical operators. The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media#logical_operators">media query logical operators</a> are only for use in media queries.</li>
+      </ul>
+      <p>Deque elaborates that the breakpoints they give won't work for every situation. But it gives a handy table that adds watches as a value: max-value 320px. They encourage you to use viewport emulators to check for reflow and zooming, but say that you shouldn't test basically anything else with this. I do sometimes find it is easier to find the bugs behind things if we test keyboard-style navigation while in an small device emulator.</p>
+
+      <h4>Images and Objects Reflow</h4>
+      
+      <p>Vector images will magnify without using quality. Using them, over rasting types, is ideal.</p>
+      <p>Use max-width: 100% on images to prevent horizontal scrolling on mobile. Another image hack is literally providing different versions of the picture for differently sized devices using 'srcset.'</p>
+      <p>For objects and plugins, prevent horizontal overflow by setting it's container to max-width: 100%.</p>
+      <h4>Responsive Tables</h4>
+      <p>So it talks about how for complex tables, you actually need to translate the layout to a single-column table thing for proper reflow to take place. And it gives and example. Looking at the code, it does use the 'content' property. As expected of a content property, I cannot highlight some of the text with my mouse. But Orca reads it! What?!.</p>
+      <p>I've asked the slack. I have no idea what is going on and it makes me feel very small.</p>
+
+      <h4>Text Reflow</h4>
+      <p>Okay. So my website is fine in terms of the breakpoints specified by Reflow. But it does break when I set it to watch dimensions. Right now, the max-width is set to a fixed value in the unit, 'ch.' I still want to keep that, but I want to try setting the main body to have a max-width of 100%. This seems to kinda repair it, but I do need to design a stylesheet that specifically gets rid of some of this padding in the case of a very, very small viewport.</p>
+      <p>Deque also has some tips for linear text reflow: let the main content fill the width of the viewport, eliminate multiple columns, eliminate floating objects, eliminate panning, and eliminate minimum and fixed widths.</p>
+
+      <h4>Simplification</h4>
+      <p>In order to fit all UI components that need to be there, Deque suggests that content can be simplified and reduced. If it is nonessential content, it can even be eliminated upon reflow.</p>
+
+      <h4>Zoom Text</h4>
+      <p>I have come across this idea of text-only zoom before, but it's been a little while. <a href="https://ashleemboyer.com/blog/an-accessibility-bookmarklet-for-testing-200-percent-text-size">Ashlee M Boyer's Resize Text bookmarklet</a> might come in handy here, so I'm linking to it.</p>
+
+      <h3>Winding Down</h3>
+      <p>And that is a wrap on that module! Huzzah! I'm browsing a little bit for fun.</p>
+      <p><a href="https://devonpersing.netlify.app/posts/survey2022part1/#why-is-accessibility-important-to-you%3F">Accessibility roles demographics by Devon Persing</a> surveys accessibility professionals and asks basic questions about who they are and how they feel about their work.</p>
+      <p><a href="https://theamycarney.com/2024/02/22/vpat-acr-audit/">ACR, VPAT, audit by Amy Carney</a> disentangels a question I was too distracted to research until now. Good to see that Amy is still thinking about a11y. She's the one that pilotted 100 days of A11y, the site that partially inspired this learning journal.</p>
+
+      <p></p>
+    
+
+
+      <p><a href="#contents">Back to Notes contents.</a></p>
+      </div>
+
+      
+    <hr aria-hidden="true"><div class="note">
+    
+      <h2 id="note-39">What Do I Want To Learn?</h2>
+      <p>Noted Friday, November 1, 2024</p>
+      
+      <p>We're a month and a half into this journey. I've learned a lot more HTML and CSS than I initially planned on learning, but I still feel like I know very, very little. I do think I need to re-evaluate and set some learning priorities for the next couple weeks. Set some goals.</p>
+
+      <p>By November 18th, here's the Deque Univeristy modules I want to have had completed. By completed, I mean that I've reviewed the content and have written notes on them.</p>
+      <ul>
+        <li>Form Labels, Instructions, and Validation</li>
+        <li>Images, SVG, and Canvas</li>
+        <li>Responsive Design and Zoom</li>
+        <li>Multimedia, Animations, and Motion: The Basics</li>
+        <li>Multimedia, Animations, and Motion: Advanced</li>
+        <li>Dynamic Updates, AJAX, and Single-Page Apps</li>
+      </ul>
+      <p>I also want to learn flex and grid, and to finish my shitty eraser component. </p>
+      
+      <p><a href="#contents">Back to Notes contents.</a></p>
+      </div>
+  
 
 
     <hr aria-hidden="true"><div class="note">
     
-      <h2 id="note-38">Deque University 10/10</h2>
+      <h2 id="note-38">Deque University 10/11</h2>
       <p>Noted Thursday, October 31, 2024</p>
       <p>Starting a new module: Device-Independent Input Methods. Gonna make it a light goal to get through the entirety of this today.</p>
 
@@ -147,7 +226,7 @@
       <p>This really makes me reconsider all the times I've seen people say that they just put tabindex=0 on random things to make keyboard navigation easier. And that is not good! Because by using tabindex=0, you've made something into a interactive component! And now you have poor nesting!</p>
       <p>Additionally, ARIA roles like button and checkbox, etc, also make these things interactive. So you can definitely create some very nesty situations if you're not careful.</p>
       
-      <h4>2. <a href="https://adrianroselli.com/2019/02/uncanny-a11y.html"></a>Uncanny A11y</h4>
+      <h4>2. <a href="https://adrianroselli.com/2019/02/uncanny-a11y.html">Uncanny A11y</a></h4>
       <p>This article describes a set of accessibility interventions that actually end up making the product less accessible than it was initially. The best part of this article is Adrian telling stories about seeing these in the wild. Some of these stories are incredible.</p>
       <p>tabindex=0 on everything is our first culprit. Adrian has seen devs use it to 'provide keyboard navigation' on native tables. He also describes seeing some people intentionally use positive tabindex values to make the visual layout out of sync with the page order. Bone-chilling, psychopathic!</p>
       <p>Our second culprit is some class ARIAbuse, in the form of providing hints by aria-label. Adrian gives one incredible example of an accessibility overlay widget that overrides every single link on the page to give 'accesibility help instructions' via an arialabel.</p>
@@ -183,7 +262,7 @@
       
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-36">Deque University 9/10</h2>
+    <h2 id="note-36">Deque University 9/11</h2>
     <p>Noted October 29, 2024</p>
 
     <h3>Typography</h3>
@@ -233,7 +312,7 @@
     
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-35">Deque University 8/10</h2>
+    <h2 id="note-35">Deque University 8/11</h2>
     <p>Noted October 28, 2024</p>
 
     <p>I can definitely design my eraser button to be better. Also it doesn't make sense that the eraser button does the opposite of erase content. It adds content. So maybe I should rethink the functionality of it entirely. I think I actually need it to be a toggle with aria pressed. But today we're doing more Deque.</p>
@@ -380,7 +459,7 @@
     
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-29">Deque University 7/10</h2>
+    <h2 id="note-29">Deque University 7/11</h2>
     <p>Noted October 22, 2024</p>
 
     <h3>So What Exactly is Button?</h3>
@@ -400,7 +479,7 @@
     
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-28">Deque University 6/10</h2>
+    <h2 id="note-28">Deque University 6/11</h2>
     <p>Noted October 21, 2024</p>
 
     <h3>
@@ -627,7 +706,7 @@
     
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-25">Deque University 5/10</h2>
+    <h2 id="note-25">Deque University 5/11</h2>
     <p>Noted October 15, 2024</p>
     <p>Back after a long weekend. Let's get cracking, lads!</p>
     <h3>Single-Key Shortcuts</h3>
@@ -646,7 +725,7 @@
     
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-24">Deque University 4/10</h2>
+    <h2 id="note-24">Deque University 4/11</h2>
     <p>Noted October 12, 2024</p>
 
     <h3>Showing the Current Page</h3>
@@ -695,7 +774,7 @@
     
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-22">Deque University 3/10</h2>
+    <h2 id="note-22">Deque University 3/11</h2>
     <p>Noted October 11, 2024</p>
 
     <h3>span links</h3>
@@ -733,7 +812,7 @@
     
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-21">Deque University 2/10</h2>
+    <h2 id="note-21">Deque University 2/11</h2>
     <p>Noted October 10, 2024</p>
 
     <h3>h1 comments</h3>
@@ -746,7 +825,7 @@
     
     <hr aria-hidden="true"><div class="note">
     
-    <h2 id="note-20">Deque University 1/10</h2>
+    <h2 id="note-20">Deque University 1/11</h2>
     <p>Noted October 9, 2024</p>
 
     <p>I'm getting lazier about recording down the progress of my learning. I've started on the module titled Semantic Strucuture and Navigation. Here are some things I'm struggling with:</p>
