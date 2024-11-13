@@ -147,12 +147,10 @@
     text-transform: uppercase;
     text-align: center;
     width: fit-content;
-    background-color: rgb(192, 192, 189);
+    background-color: rgb(228, 228, 227);
     margin: auto;
     color: rgb(22, 7, 136);
-    border-radius: 0.5em;
     padding: 0.2em; 
-    text-shadow: 0.05em 0.05em rgb(3, 226, 241);
 
   }
 
@@ -165,6 +163,9 @@
   }
   li, dt, dd {
     max-width: 55ch;
+  }
+  dt {
+    font-weight: bold;
   }
   dd{
     padding-top: 0.5em;
@@ -184,6 +185,9 @@
     padding: 0 2em 2em 2em;
     max-width: 100%;
 
+  }
+  h4 {
+    max-width: 65ch;
   }
   header {
     text-align: center;
@@ -217,6 +221,9 @@
   .table-of-contents {
     text-align:left;
     margin-left: -2em;
+  }
+  .table-of-contents h3 {
+    margin-left: 2em;
   }
 
   #tc-expanded { /*button to expand/collapse*/
