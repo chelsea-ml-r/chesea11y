@@ -1,6 +1,234 @@
+/*reset
+*/
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0 auto;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
 
 
+/*colour-setting and color-scheme contrast error fixes*/
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --walo: #F0F7F4;
+    --pimeja: #32292F;
+    --accent-one: #2F6A60;
+    --accent-two: #70ABAF;
+    --accent-three: #866407;
+    --accent-four: #d84806;
+    --pale: #fcfcfc;
+    --notes-green:rgb(226, 248, 238);
+    --notes-yellow: rgb(248, 248, 226);
+    --notes-pink: #FBEEF9;
+    --notes-orange: rgb(248, 232, 226);
+    --notes-blue: rgb(226, 230, 248);
+   }
+   div.note:nth-of-type(4n+3) a:visited{
+    color: #463403;
+
+  }
+   
+}
 @media (prefers-color-scheme: dark) {
+  :root {
+    --walo: #32292F;
+    --pimeja: #eef3f1;
+    --accent-one: #5ae0d1;
+    --accent-two: #25484b;
+    --accent-three: #fcc222;
+    --accent-four: #d84806;
+    --pale: #585555;
+    --notes-green:rgb(32, 53, 44);
+    --notes-yellow: rgb(70, 70, 15);
+    --notes-pink: rgb(56, 5, 44);
+    --notes-orange: rgb(43, 27, 21);
+    --notes-blue: rgb(3, 11, 48);
+    
+   }
+  div.note:nth-of-type(4n+2) h3{
+    color: #FB9C70; /*hack contrast fix*/
+  }
+  
+}
+
+
+
+
+html {
+  font-family: sans-serif;
+}
+body {
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  margin: auto;
+  font-weight: bold;
+  max-width: 50em;
+}
+  nav {
+    list-style-type: none;
+  }
+  nav ul{
+    padding: 1.5em;
+
+  }
+  nav li {
+    display: inline-flex;
+    justify-content: space-evenly;
+    font-size: 1.3rem;
+
+  }
+  a.current {
+    border-style: solid;
+    border-width: 0.25em;
+    text-decoration: none;
+    border-radius: 4em;
+    padding: 0.5em; 
+  }
+  a.current:hover, a.current:focus, nav li a:not(.current):hover, nav li a:not(.current):focus {
+    outline-width: 0.2em;
+    outline-style: solid;
+    text-decoration-thickness: 0.2em;
+    text-decoration-line: underline;
+  }
+  nav li a:not(.current){
+    border-width: 0.02em;
+    border-style: solid;
+    padding: 0.4em;
+    text-decoration: none;
+  }
+
+main {
+  text-align: left;
+  padding: 1em 5em 0 5em;
+  display: inline-block;
+  max-width: 50em;
+}
+
+
+
+
+
+.note {
+  padding: 1em;
+  margin-top:1em;
+}
+
+
+
+
+.motto {
+text-transform: uppercase;
+text-align: center;
+padding: 0.2em; 
+
+}
+
+li, p, dd, dt {
+  line-height: 1.6em;
+  margin: 1em 0;
+  font-size: 1.1rem;
+}
+
+blockquote {
+  margin: 0 2em;
+  border-width: 0.1em;
+  border-style: dotted;
+}
+
+dt {
+  font-weight: bold;
+}
+
+
+
+
+
+
+/*table of contents for notes section*/
+.table-of-contents {
+  text-align:left;
+  margin-left: -2em;
+}
+.table-of-contents h3 {
+  margin-left: 2em;
+}
+
+
+/*skip link experiments*/
+.skip a {
+  display: block;
+  position: absolute;
+  left: -999px;
+  top: -999px;
+  background-color: var(--pale);
+  }
+
+.skip a:focus {
+  left: 0;
+  top: 0;
+  padding: 0.1em;
+  }
+
+@media (max-width: 672px) {
+  main {
+    padding: 1em;
+    margin: 0;
+  }
+  nav li {
+    margin: 0.2em;
+  }
+
+} 
+  
+
+
+
+
+
+/*@media (prefers-color-scheme: dark) {
   a:focus {
     outline: none;
     box-shadow: inset 0 0 0 3px rgb(6, 210, 115);
@@ -13,7 +241,6 @@
   }
   
   html {
-    font-family: sans-serif;
     background-color: rgb(42, 35, 28);
   }
   body {
@@ -40,20 +267,7 @@
   }
 
 
-  a.current:hover {
-    outline: 0.25em #2c09f4 solid;
-    text-decoration: underline red;
-    text-decoration-thickness: 3px;
-
-  }
   
-  a.current:focus{
-    outline: 0.4em #2c09f4 solid;
-    text-decoration: underline red;
-    text-decoration-thickness: 3px;
-
-
-
   }
   a:link {
     color: rgb(48, 93, 24);
@@ -79,6 +293,20 @@
 
 
   }
+    a.current:hover {
+    outline: 0.25em #2c09f4 solid;
+    text-decoration: underline red;
+    text-decoration-thickness: 3px;
+
+  }
+  
+  a.current:focus{
+    ouline: 0.4em #2c09f4 solid;
+    text-decoration: underline red;
+    text-decoration-thickness: 3px;
+
+
+}
   main {
     background-color: rgb(244, 244, 245);
   }
@@ -91,51 +319,27 @@
   h1, h2, h3, h4 {
     color: rgb(22, 7, 136)
   }
-
+  */
   .note {
     padding: 1em;
     margin-top:1em;
   }
-  /*green with pink hover*/
-  div.note:nth-of-type(4n+1){
-    background-color:rgb(226, 248, 238);
-  }
-  div.note:nth-of-type(4n+1) a:hover, div.note:nth-of-type(4n+1) a:focus   {
-    box-shadow: inset 0 0 0 0.8em rgb(248, 226, 243);
-  } 
-  /*yellow with blue hover*/
-  div.note:nth-of-type(4n+2){
-    background-color:rgb(248, 248, 226);
-  }
-  div.note:nth-of-type(4n+2) a:hover, div.note:nth-of-type(4n+2) a:focus   {
-    box-shadow: inset 0 0 0 0.8em rgb(226, 230, 248);
-  } 
-  /*pink with green hover*/
-  div.note:nth-of-type(4n+3){
-    background-color:rgb(248, 226, 243);
-  }
-  div.note:nth-of-type(4n+3) a:hover, div.note:nth-of-type(4n+3) a:focus   {
-    box-shadow: inset 0 0 0 0.8em rgb(226, 248, 238);
-  } 
-  /*orange with yellow hover*/
-  div.note:nth-of-type(4n+4){
-    background-color:rgb(248, 232, 226);
-  }
-  div.note:nth-of-type(4n+4) a:hover, div.note:nth-of-type(4n+4) a:focus   {
-    box-shadow: inset 0 0 0 0.8em rgb(248, 248, 226);
-  } 
-
-  /*looseleaf paper styling*/
+  
   ul.notes-menu > li {
     list-style-type: none;
     padding: 0.03em;
-    border: 0.01em solid rgb(120, 135, 235);
+    border: 0.01em solid;
     border-collapse: collapse;
-    background-color:#fcf9f4;
     max-width: 70ch;
+    margin: 0;
+  }
+  .table-of-contents > h3 {
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+
   }
   ul.notes-menu > li > a {
-    border-left: 0.2em solid rgb(224, 2, 2);
+    border-left: 0.2em solid;
     padding: 0 0.5em 0 0.5em;
     text-decoration: none;
   }
@@ -143,90 +347,99 @@
     text-decoration: underline;
   }
 
-  .motto {
-    text-transform: uppercase;
-    text-align: center;
-    width: fit-content;
-    background-color: rgb(228, 228, 227);
-    margin: auto;
-    color: rgb(22, 7, 136);
-    padding: 0.2em; 
-
-  }
-
-}
-
-  
-  p {
-    max-width: 65ch;
-    line-height: 1.6em;
-  }
-  li, dt, dd {
-    max-width: 55ch;
-  }
-  dt {
-    font-weight: bold;
-  }
-  dd{
-    padding-top: 0.5em;
-    padding-bottom: 1em;
-  }
- 
-  blockquote {
-    max-width: 50ch;
-  }
+  /*COLOURS*/
   body {
-     text-align: center;
-  }
-  main {
-    text-align: left;
-    margin: auto;
-    display: inline-block;
-    padding: 0 2em 2em 2em;
-    max-width: 100%;
-
-  }
-  h4 {
-    max-width: 65ch;
-  }
-  header {
-    text-align: center;
-    margin: auto;
-    max-width: 55ch;
-    font-weight: bold;
-    border-radius: 0.5em;
-    border-style: dashed;
-    padding: 0 0.5em 0 0.5em;
-
-    
+    background-color: var(--accent-two);
   }
   nav {
-    list-style-type: none;
+    background-color: var(--accent-four);
   }
-  nav li {
-    display: inline;
-    text-align:center;
-    padding: 0.25em;
-    line-height: 2.5em;
+
+  ul:first-child li a{
+    color: var(--walo);
+
+
+  }
+  a.current:hover, a.current:focus, nav li a:not(.current):hover, nav li a:not(.current):focus {
+    text-decoration-color: var(--accent-four);
+    outline-color: var(--accent-two);
+  }
+  nav li a:not(.current){
+    border-color: var(--walo);
+  }
+
+  main {
+    background-color: var(--walo);
+    color: var(--pimeja)
+
+  }
+  h1, h2, h3, h4 {
+    color: var(--accent-one)
   }
   h2 {
-    max-width: 40ch;
+    color: var(--accent-three);
+
   }
   h3 {
-    max-width: 50ch;
+    color: var(--accent-four);
+
   }
+  a {
+    color: var(--accent-three);
+  }
+  a:visited {
+    color: var(--accent-one);
+  }
+  blockquote {
+    border-color: var(--pimeja);
+  
+  }
+  
+  /*notes colours*/
+    div.note:nth-of-type(4n+1){
+      background-color: var(--notes-green);
+    }
+    div.note:nth-of-type(4n+1) a:hover, div.note:nth-of-type(4n+1) a:focus   {
+      box-shadow: inset 0 0 0 0.8em var(--notes-pink);
+    } 
+    div.note:nth-of-type(4n+2){
+      background-color: var(--notes-yellow);
+    }
+
+    div.note:nth-of-type(4n+2) a:hover, div.note:nth-of-type(4n+2) a:focus   {
+      box-shadow: inset 0 0 0 0.8em var(--notes-blue);
+    } 
+    div.note:nth-of-type(4n+3){
+      background-color:var(--notes-pink);
+    }
+    div.note:nth-of-type(4n+3) a:hover, div.note:nth-of-type(4n+3) a:focus   {
+      box-shadow: inset 0 0 0 0.8em  var(--notes-green);
+    } 
+    div.note:nth-of-type(4n+4){
+      background-color: var(--notes-orange);
+    }
+    div.note:nth-of-type(4n+4) a:hover, div.note:nth-of-type(4n+4) a:focus   {
+      box-shadow: inset 0 0 0 0.8em  var(--notes-yellow);
+    }
+    ul.notes-menu > li {
+      border-color: var(--accent-two);
+      background-color: var(--pale);
+    }
+    ul.notes-menu > li > a {
+      border-left-color: var(--accent-four);
+    }
 
 
-  /*table of contents for notes section*/
-  .table-of-contents {
-    text-align:left;
-    margin-left: -2em;
-  }
-  .table-of-contents h3 {
-    margin-left: 2em;
-  }
 
-  #tc-expanded { /*button to expand/collapse*/
+
+
+
+
+  
+
+
+
+  /*#tc-expanded { /*button to expand/collapse
     padding: 1em;
     transform: skew(-20deg);
     background-color:#fac8d1;
@@ -244,7 +457,7 @@
   
   #tc-jump {
     display:inline;
-  }
+  }*/
   
 
   
@@ -267,19 +480,45 @@
   }
 
 
-  /*skip link experiments*/
-  .skip a {
-    display: block;
-    position: absolute;
-    left: -999px;
-    top: -999px;
-    }
 
-  .skip a:focus {
-    left: 0;
-    top: 0;
-    padding: 0.1em;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   /*cool table things*/
