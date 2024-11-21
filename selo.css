@@ -214,7 +214,7 @@ dt {
 
 @media (max-width: 672px) {
   main {
-    padding: 1em;
+    padding: 0.4em;
     margin: 0;
   }
   nav li {
