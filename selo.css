@@ -66,6 +66,7 @@ p {
     --notes-pink: #FBEEF9;
     --notes-orange: rgb(248, 232, 226);
     --notes-blue: rgb(226, 230, 248);
+    --details: rgb(204, 201, 201);
    }
    div.note:nth-of-type(4n+3) a:visited{
     color: #463403;
@@ -87,6 +88,8 @@ p {
     --notes-pink: rgb(56, 5, 44);
     --notes-orange: rgb(43, 27, 21);
     --notes-blue: rgb(3, 11, 48);
+    --details: rgb(80, 76, 76);
+
     
    }
   div.note:nth-of-type(4n+2) h3{
@@ -182,8 +185,12 @@ dt {
   font-weight: bold;
 }
 
-
-
+h4, h5 {
+  padding-top: 0.5em;
+}
+.note img {
+  max-width: 100%;
+}
 
 
 
@@ -197,20 +204,19 @@ dt {
 }
 
 
-/*skip link experiments*/
+/*skip link experiments
 .skip a {
   display: block;
   position: absolute;
   left: -999px;
   top: -999px;
-  background-color: var(--pale);
-  }
+  }*/
 
-.skip a:focus {
-  left: 0;
-  top: 0;
-  padding: 0.1em;
-  }
+
+
+.skip a {
+  padding: 0.2em;
+}
 
 @media (max-width: 672px) {
   main {
@@ -332,6 +338,7 @@ dt {
     border: 0.01em solid;
     border-collapse: collapse;
     max-width: 70ch;
+    flex-wrap: wrap;
     margin: 0;
   }
   span.date {
@@ -351,9 +358,11 @@ dt {
     flex: 5;
     text-align: center;
   }
-  ul.notes-menu > li > a:hover {
+  ul.notes-menu > li > a:hover, ul.notes-menu > li > a:focus {
+    
     text-decoration: underline;
   }
+
 
   /*COLOURS*/
   body {
@@ -366,12 +375,25 @@ dt {
   ul:first-child li a{
     color: var(--walo);
 
-
   }
-  a.current:hover, a.current:focus, nav li a:not(.current):hover, nav li a:not(.current):focus {
-    text-decoration-color: var(--accent-four);
+  details {
+    background-color: var(--details);
+  }
+  a.current:hover, nav li a:not(.current):hover {
+    text-decoration-color: var(--accent-two);
     outline-color: var(--accent-two);
   }
+  nav li a:not(.current):focus, a.current:focus {
+    outline-color: var(--accent-two);
+    background-color: var(--walo);
+    color: var(--accent-four);
+
+  }
+  ul.notes-menu > li > a:focus {
+    background-color: var(--accent-four);
+    color: var(--walo);
+  }
+
   nav li a:not(.current){
     border-color: var(--walo);
   }
@@ -398,10 +420,28 @@ dt {
   a:visited {
     color: var(--accent-one);
   }
+  main a:focus {
+    background-color: var(--pale);
+  
+    outline: 0.2em solid var(--accent-four);
+  }
+  main a:hover {
+    background-color: var(--pale);
+    font-weight: 401;
+
+  }
+  .skip a:focus {
+    color: var(--pale);
+    background-color: var(--accent-one);
+  }
+  .skip a {
+    background-color: var(--pale);
+    color: var(--accent-one);
+  }
   blockquote {
     border-color: var(--pimeja);
-  
   }
+  
   
   /*notes colours*/
     div.note:nth-of-type(4n+1){
@@ -429,6 +469,10 @@ dt {
     div.note:nth-of-type(4n+4) a:hover, div.note:nth-of-type(4n+4) a:focus   {
       box-shadow: inset 0 0 0 0.8em  var(--notes-yellow);
     }
+    div.note a:focus, div.note a:hover {
+      color: var(--pimeja);
+    }
+
     ul.notes-menu > li {
       border-color: var(--accent-two);
       background-color: var(--pale);
