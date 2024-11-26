@@ -66,7 +66,7 @@ p {
     --notes-pink: #FBEEF9;
     --notes-orange: rgb(248, 232, 226);
     --notes-blue: rgb(226, 230, 248);
-    --details: rgb(204, 201, 201);
+    --details: rgb(231, 229, 229);
    }
    div.note:nth-of-type(4n+3) a:visited{
     color: #463403;
