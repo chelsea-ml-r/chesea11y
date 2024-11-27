@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Problematic WCAG 2.1 Critera — ChelseA11y Learning</title>
+        <link rel="stylesheet" href="../selo.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <header>
+        <div class="skip">
+        </div>
+        <nav>
+            <a href="../entries.html" class="back-button">Back to Entries</a>
+        </nav>
+        </header>
+        <main>
+
+            <h1 id="entry-1">Problematic WCAG 2.1 Criterion</h1>
+            <p>Composed September 9, 2024</p>
+        
+            <h2>Introduction</h2>
+        
+            <p>What aspects of <a href="https://www.w3.org/TR/WCAG21/">WCAG 2.1</a> have the potential to be problematic? Currently, WCAG 2.1 is the draft mandated for implementation <a href="https://accessibilitymb.ca/accessibility/act-standards/the-accessibility-standard-for-information-and-communication.html">in my province</a>. Despite it not being the most recent version of the guidelines, 2.1 is the version most relevant to me. In answering the question, let's start with an obvious approach: What did <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a> intervene on?</p>
+        
+            <h2>WCAG 2.2 Revisions</h2>
+        
+            <p>WCAG 2.2 was historic in that it was the first edition of the guidelines to <a href="https://www.boia.org/blog/why-wcag-2.2-isnt-fully-backwards-compatible-with-wcag-2.1">NOT be entirely backwards-compatible.</a> One criterion, Focus Visible, was shifted from level AA to level A. Additionally, <a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 Parsing</a>, was removed from the guidelines.</p>
+        
+            <h3>Problematic Criteria: Focus Visible</h3>
+        
+            <p>The shift of <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">Focus Visible</a> from <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-levels-head">Conformance Level AA to Conformance Level A</a> is intuitive. A visible focus indicator is essential for folks who use the keyboard to access the webpage along with their own vision. In my accessibility testing, when focus is not visible, I have to rely on the tiny link address that my Firefox or Chrome browser provides me in the bottom left corner.</p> 
+        
+            <!--<img src="link-address-bottom-left.png" alt="A red arrow points to the imperceptible link address on the bottom left for a highlighted link.">-->
+            
+            <p>Link addresses are for computers, not humans. They are not intended to be used as component that a human uses to understand where they are on the page. Additionally, when the focus indicator is visible in one section, but not in another, it is incredibly disorienting to shift my eyes to search for where I might possibly be on the page. It forces me to tab back and forth just to find my footing. Though I am not a native keyboard-only user, I would imagine that this consistently popping up would be exasperating.</p> 
+        
+            <h3> Problematic Criteria: Parsing</h3>
+        
+            <p>The deprecation of <a href="https://www.w3.org/WAI/WCAG21/Understanding/parsing.html">Parsing</a> is the result of technological advances for assistive technology, and browsers in general. These tools are now expected to be able to smoothly handle some markup mistakes with no change in user experience. While proper HTML remains a priority, it no longer breaks functionality and is no longer considered absolutely necessary to create an accessible end product. Especially where the WCAG are used as a reference to pursue legal action, the inclusion of this criteria as 'essential' simply becomes inaccurate.</p>
+        
+            <h2>WCAG 2.2 Additions</h2>
+        
+            <p>In addition to existing features that WCAG 2.2 upgraded/downgraded, let's look at the new criteria that were introduced in order to find some the problematic elements of 2.1 that WCAG 2.2 sought to address.</p>
+        
+            <h3>Extra Problematic Criteria: Focus Visible</h3>
+        
+            <p>Three new success criteria pertaining to the focus indicator were added into WCAG 2.2: <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html">2.4.11 Focus Not Obscured (Minimum) (AA)</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html">2.4.12 Focus Not Obscured (Enhanced) (AAA)</a>, and <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html">2.4.13 Focus Appearance (AAA)</a>. Within WCAG 2.1, 'Focus Visible', then listed as a Level AA element, merely outlined what the appearance of the focus indicator was. It had to not be transparent. It had to exist! However the wording of the criterion did not specify that the user actually had to <em>see</em> the indicator. If it was obscured by other elements, that was not a problem. In which case, it was possible to meet the definition of 'Focus Visible' without being able to see the focus!</p>
+        
+            <h3>Problematic Criteria: Pointer Gestures and Motion Actuation</h3>
+        
+            <p>Another success criterion new to WCAG 2.2, <a href="https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html">2.5.7 Dragging Movements (AA)</a>, reveals a gap within the original 2.1 guidelines. Dragging movements done by a mouse are not covered by the criterion in WCAG 2.1. For example, <a href="https://www.w3.org/WAI/WCAG21/Understanding/motion-actuation">2.5.4 Motion Actuation</a>, which asks that "functionality that can be operated by device motion or user motion" can be disabled refers not to motion of the pointer. Examples of 'device motion' and 'user motion' include shaking the device, tilting the device, and touch gestures like swiping to get to the next. Another criteria, <a href="https://www.w3.org/WAI/WCAG21/Understanding/pointer-gestures">2.5.1 Pointer Gestures (A)</a>, also does not address dragging motions. Pointer Gestures calls for making what is called 'path-based gestures' optional. Here's how W3C makes the distinction between 'path-based gestures' and dragging.</p>
+        
+            <blockquote cite="https://www.w3.org/WAI/WCAG21/Understanding/pointer-gestures.html">
+              Dragging is a movement where the user picks up an object with a pointer (such as mouse cursor or a finger) and moves it to some other position. This movement from start point to end point does not require the user to follow any particular path or direction. Dragging is therefore not path-based. In contrast, a path-based pointer gesture requires the traversal of an intermediate point, which is a technical way of expressing that the directionality and possibly speed of the gesture communicates a particular command to the system. Dragging motions are covered in Success Criterion 2.5.7: Dragging.
+            </blockquote>
+          
+          <p>In plainer language, dragging and path-based motions both have a designated 'starting point' and 'ending point. But path-based requires you to take a designated route between these two areas, while dragging motions allow the user to get from the start to the end however they want.</p>
+        
+          <p>While there are assistive technologies that help users complete dragging motions, actually executing the movement is a <a href="https://lists.w3.org/Archives/Public/public-comments-wcag20/2024Jan/0000.html">cumbersome and complicated operation</a>. It also appears that the inclusion of dragging functionality is not always the default for some of these devices.</p>
+        
+          <h3>Problematic Criterion: Target Size</h3>
+        
+          <p>Also new to WCAG 2.2 was <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">2.5.8 Target Size (Minimum) (AA)</a>, a 'minimum' requirement that joined the Level AAA criteria <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size">2.5.5 Target Size</a>, previously the only criterion that specified anything about target size. By target size, we mean whatever a person could click to change something on the page. These targets can be links, buttons, checkboxes, etc.</p> 
+        
+          <p>The problematic thing here is that Target Size was designated at a Level AAA criterion. There is no enforcement for Level AAA criteria, and they are not seen as a priority at all. It was designated as such because the original suggested minimum size, 44 by 44 pixels, was considered a bit too large to mandate it across the board. However, this means that for Level AA compliant websites using the WCAG 2.1 framework, target size is not even considered.</p>
+        
+          <h2>Conclusion</h2>
+          <p>This article derived problematic elements of WCAG 2.1 by referencing what was ammended in WCAG 2.2. However, there are other grievances that have yet to be addressed by the next draft. For example, WCAG editions to this point have been criticized regarding the lack of accessibility they provide to folks with <a href="https://www.levelaccess.com/blog/cognitive-disability-the-next-frontier-for-web-accessibility/">cognitive disabilities</a>, and a working group (called COGA) is currently trying to formulate guidelines and best practices. I will write a new article when I am more familiar with this everextending landscape.<p>
+
+        </main>
+        <footer>
+            <a href="../entries.html" class="back-button">Back to Entries</a>
+
+        </footer>
+
+
+    </body>
+</html>

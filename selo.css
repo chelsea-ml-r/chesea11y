@@ -40,7 +40,7 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-
+details
 /*
   9. Create a root stacking context
 */
@@ -142,6 +142,7 @@ header {
     padding: 0.4em;
     text-decoration: none;
   }
+  
 
 main {
   text-align: left;
@@ -398,6 +399,7 @@ h4, h5 {
   nav li a:not(.current){
     border-color: var(--walo);
   }
+  
 
   main {
     background-color: var(--walo);
@@ -442,6 +444,20 @@ h4, h5 {
   blockquote {
     border-color: var(--pimeja);
   }
+  .back-button[href="../entries.html"] {
+    color: var(--walo);
+    display: block;
+    font-weight: 600;
+    padding: 1em 0;
+    background-color: var(--accent-three);
+  }
+
+  .back-button[href="../entries.html"]:focus, .back-button[href="./entries.html"]:hover {
+    background-color: var(--accent-one);
+    outline: none;
+  }
+
+
   
   
   /*notes colours*/
@@ -638,7 +654,7 @@ h4, h5 {
   }
 }
 @media print {
-  header nav {
+  header nav, footer {
     display: none;
   }
   .skip {
