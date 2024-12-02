@@ -374,7 +374,7 @@ h4, h5 {
     background-color: var(--accent-four);
   }
 
-  ul:first-child li a{
+  nav ul:first-child li a{
     color: var(--walo);
 
   }
@@ -444,7 +444,8 @@ h4, h5 {
   blockquote {
     border-color: var(--pimeja);
   }
-  .back-button[href="../entries.html"] {
+  .back-button[href="../entries.html"], .back-button[href="../cpacc.html"] 
+    {
     color: var(--walo);
     display: block;
     font-weight: 600;
@@ -452,7 +453,7 @@ h4, h5 {
     background-color: var(--accent-three);
   }
 
-  .back-button[href="../entries.html"]:focus, .back-button[href="./entries.html"]:hover {
+  .back-button[href="../entries.html"]:focus, .back-button[href="../entries.html"]:hover, .back-button[href="../cpacc.html"]:focus, .back-button[href="../cpacc.html"]:hover {
     background-color: var(--accent-one);
     outline: none;
   }
