@@ -230,6 +230,27 @@ h4, h5 {
   }
 
 } 
+
+footer.cycling {
+  display: flex;
+}
+footer.cycling a {
+  border: 0.02em solid var(--pimeja);
+  background-color: var(--accent-three);
+  padding: 1em;
+  flex: 33%;
+  color: var(--walo);
+  display: flex;
+  flex-direction:column;
+  object-fit: fill;
+  justify-content: center;
+  align-items: center;;
+}
+footer {
+  max-width: 50em;
+}
+
+
   
 
 
@@ -444,7 +465,7 @@ h4, h5 {
   blockquote {
     border-color: var(--pimeja);
   }
-  .back-button[href="../entries.html"], .back-button[href="../cpacc.html"] 
+  .back-button[href="../entries.html"], .back-button[href="../cpacc.html"]
     {
     color: var(--walo);
     display: block;
@@ -453,7 +474,7 @@ h4, h5 {
     background-color: var(--accent-three);
   }
 
-  .back-button[href="../entries.html"]:focus, .back-button[href="../entries.html"]:hover, .back-button[href="../cpacc.html"]:focus, .back-button[href="../cpacc.html"]:hover {
+  .back-button[href="../entries.html"]:focus, .back-button[href="../entries.html"]:hover, .back-button[href="../cpacc.html"]:focus, .back-button[href="../cpacc.html"]:hover, footer.cycling a:hover, footer.cycling a:focus {
     background-color: var(--accent-one);
     outline: none;
   }
