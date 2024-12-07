@@ -382,8 +382,14 @@ footer {
     text-align: center;
   }
   ul.notes-menu > li > a:hover, ul.notes-menu > li > a:focus {
-    
+    background-color: var(--notes-yellow);
     text-decoration: underline;
+  }
+  .entry-contents {
+    border: 0.1em dotted var(--pimeja);
+    max-width: 26em;
+    padding: 0 1em;
+    margin: 0 -1em;
   }
 
 
@@ -477,6 +483,15 @@ footer {
   .back-button[href="../entries.html"]:focus, .back-button[href="../entries.html"]:hover, .back-button[href="../cpacc.html"]:focus, .back-button[href="../cpacc.html"]:hover, footer.cycling a:hover, footer.cycling a:focus {
     background-color: var(--accent-one);
     outline: none;
+  }
+  .schedule {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .schedule dd, .schedule dt {
+    flex: 50%;
+    border-top: 0.01em dotted var(--pimeja);
+    margin: 0.5em 0;
   }
 
 
