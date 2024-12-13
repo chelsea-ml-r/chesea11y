@@ -613,6 +613,30 @@ footer {
 
 
 
+table.simple{
+  overflow-x: auto;
+  color:var(--pimeja);
+  border: 0.01em solid;
+  margin: 0;
+  border-collapse: collapse;
+  background-color: var(--walo);
+
+}
+table.simple caption{
+  text-align: left;
+  font-weight: 700;
+  padding-bottom: 0.5em;
+}
+table.simple td, table.simple th{
+  border: 0.01em solid;
+  border-color: var(--pimeja);
+  padding: 0.3em;
+}
+table.simple th {
+  background-color: var(--accent-three);
+  color: var(--walo);
+}
+
 
 
 
