@@ -217,7 +217,6 @@ h4, h5 {
 
 
 .skip a {
-  padding: 0.2em;
 }
 
 @media (max-width: 672px) {
@@ -466,7 +465,9 @@ footer {
   }
   .skip a {
     background-color: var(--pale);
-    color: var(--accent-one);
+    color: var(--accent-one); 
+    padding: 0 1em;
+    margin: 0 0.5em;
   }
   blockquote {
     border-color: var(--pimeja);
@@ -493,6 +494,13 @@ footer {
     border-top: 0.01em dotted var(--pimeja);
     margin: 0.5em 0;
   }
+  .timeline dd{
+    flex: 80%;
+  }
+  .timeline dt{
+    flex: 20%;
+  }
+
 
 
   
