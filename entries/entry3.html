@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Errors in FreeCodeCamp's Technical Documentation Project — ChelseA11y Learning</title>
+        <link rel="stylesheet" href="../selo.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <header>
+        <div class="skip">
+        </div>
+        <nav>
+            <a href="../entries.html" class="back-button">Back to Entries</a>
+        </nav>
+        </header>
+          <main>
+
+            <h1>Accessibility Errors in FreeCodeCamp's Technical Documentation Project Implementation and Instructions</h1>
+            <p>Composed Monday, December 16, 2024<p>
+            
+            <h2>Introduction</h2>
+
+            <h3>What is FreeCodeCamp?</h3>
+            <p>FreeCodeCamp is pretty universally recommended as a great resource for new programmers looking to dip their toes into the basics of HTML, CSS, and Javascript, among other things. Folks can learn the basics of Responsive Design and receive a Responsive Design Certificate after going through a series of modules and completing a handful of projects.</p>
+            <p>As an aspiring accessibility professional with little technical expertise, I have used FreeCodeCamp to learn HTML, CSS, and Responsive design. I was particularly excited to learn that FreeCodeCamp had gone through their material to try to emphasize accessibility. They even have a module, titled 'Learn Accessibility by making a Quiz,' dedicated to accessible webpages. </p>
+            <p><strong>And let me rip off the bandaid now. Nobody has double-checked that the accessibility advice they give is any good. It often is not good, and accessibility continues to be underemphasized across all of the material that I've seen so far.</strong></p>
+            <h3>The Technical Documentation Project</h3>
+            <p>We'll explore this thesis of mine in the Technical Documentation Project, the third project that one needs to complete in order to receive their Responsive Design Certification. This project does not dispense bad accessibility advice inasmuch as it simply forgets about the concept altogether. It makes some very elementary web accessibility mistakes.</p>
+            <p>They are so obvious that I bet you too can spot them. If you like, you can read the <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-technical-documentation-page-project/build-a-technical-documentation-page">Technical Documentation Project Instructions</a> for yourself, and view <a href="https://technical-documentation-page.freecodecamp.rocks/">FreeCodeCamp's Demo</a>.</p>
+            <p>I do encourage you to take a look, as the rest of this article depends on that as context.</p>
+            <p>You can read the rest of this article either on this current page, or on <a href="entry3/supplemental.html">my completed technical documentation project.</a> Dark Mode is not supported on this project.</p>
+
+            <h2>Landmarks Best Practices</h2>
+        <p>According to <a href="https://dequeuniversity.com/rules/axe/4.6/landmark-one-main">Deque</a>, you ought to limit the amount of <code>&lt;header&gt;</code> elements you use. You should also limit the number of <code>&lt;footer&gt;</code> and <code>&lt;main&gt;</code> landmarks you use to basically one per page.</p>
+        <p>Understand that the semantic role of these landmarks are primarily there to serve screen reader technologies. Within the WAI-ARIA specification that provides ways to create these landmarks in separate ways using the aria roles, <code>role="banner"</code>, <code>role="content-info"</code> and <code>role="main"</code>, the specification specifically prescribes only one use of these roles per page.</p>
+        <p>If there is more than one, these landmarks become rather redundant. It is for this reason that the HTML elements ought to be similarly treated. While not explicitly forbidden in the HTML5 specification, it just makes sense if we want to preserve the functional role these play.</p>
+        <p>FreeCodeCamp asks us to implement no less than a minimum of six  <code>&lt;header&gt;</code> elements into our technical documentation project, alongside an enormous amount of  <code>&lt;section&gt;</code> elements.</p>
+        <p>Note that the FreeCodeCamp technical documentation project seems to rely on the  <code>&lt;header&gt;</code> role to provide headings. This is not the element they should have relied on for this.</p>
+        <h2>Semantic Headings</h2>
+      <p>They instead only needed to rely on semantic hierarchical headings: <code>&lt;h1&gt;</code> and <code>&lt;h2&gt;</code> and etc.</p>
+      <p>In my implementation of this project, I have marked my headings up semantically. FreeCodeCamp doesn't do this, and thus fails <a href="https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships">SC 1.3.1 Info and Relationships</a>.</p>
+      <p>None of the content that is visually styled to be a header are announced as headings in FreeCodeCamp's version of the technical documentation site. Instead, they are read out just as any other text.</p>
+      <p>This is also inconvenient for screen-reader users when they are navigating through a page. Screen-reader users very often browse content by semantic headings. I have heard anecdotes that headings are used more often to browse than landmark regions are.</p>
+      <p>While it seems the FreeCodeCamp team has taken it upon itself to use more landmarks for the benefit of screen-reader users, they ultimately end up ridding themselves entirely of another mechanism that can accomplish the exact same task.</p>
+      <p>Another thing that I've done in my implementation is organizing the sub-navigation links into a formal list. There is general agreement in the accessibility world that this is nice to have.</p>
+        <h2>Page Title</h2>
+        <p>FreeCodeCamp's implementation also misses some very basic web accessibility freebies.</p>
+        <p>To meet <a href="https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html">SC 2.4.2 Page Titled</a>, one only needs to provide a meaningful page title. One does so by adding a <code>&lt;title&gt;</code> element in the <code>&lt;head&gt;</code> element. Ideally, you would provide both the name of the website and the name of the specific subpage, but that is merely a best practice and not necessary.</p>
+        <p>The most important thing is to provide a title. However, FreeCodeCamp's <code>&lt;head&gt;</code> element within their sample page only contains a <code>&lt;link&gt;</code> element to their stylesheet.</p>
+        <p>I can understand having a sparse page in order to not give the learner too many hints, and to make academic misconduct slightly harder. But at least make your sample project accessible, please.</p>
+        <p>Additionally, having a valid title attribute is not one of the instructions provided in the technical documentation project's instructions. In not modelling good accessible practices, and in not requesting the learner to implement them, I am sure that many implementations of this project will simply neglect it.</p> 
+        <h2>Page Language</h2>
+      <p>The second freebie missed results in a failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/language-of-page">SC 3.1.1 Language of Page</a>. They miss the lang attribute in their own implementation, and do not require the learner to implement it into their own implementation.</p><p>The lang attribute is important because it informs the screen reader what pronounciation rules it should load. Especially in cases where the screen reader's default pronounciation ruleset is something other than English, the lang attribute is useful. The same rationale holds for refreshable Braille displays. Different languages are encoded into Braille differently, and the refreshable Braille display must be notified which Braille standard it should be using.</p>
+      <p>Including the language of a page is also a valuable practice within internationalization. Here's a non-exhaustive list of why the lang attribute is important, taken from the <a href="https://www.w3.org/International/questions/qa-lang-why">W3C Internationalization Working Group</a>.</p>
+      <ul>
+        <li>Hyphenation rules depend on language</li>
+        <li>Font selection depends on language</li>
+        <li>Form spell-check depends on language</li>
+        <li>Machine translation may depend on language</li>
+        <li>Search results may be customized to language</li>
+      </ul>
+        <h2>Accessible Scrolling Areas</h2>
+      <p>Finally, FreeCodeCamp doesn't properly account for accessibility when implementing their responsive design. They have their document navigation sidebar collapse into a vertical scrolling ares.</p>
+      <p>Their implementation is not unusable. As the scrolling area only consists of interactive components, the scrolling area is usable by keyboard-only users and users of technology that rely on keyboard-only functionality. If the scrolling area consisted primarily of non-interactive content, some extra care might have to be deployed in order to accomodate scrolling functionality for all users.</p>
+      <p>However there still is another problem. The scrolling area itself will be treated as an interactive component by some browsers, which means that it needs an accessible name. This is required to meet <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value">SC 4.1.2 Name, Role, Value</a>. In this project, I've assigned one via aria-labelledby.</p>
+      <p><code>      &lt;h2 id="toc"&gt;Table of Contents:&lt;/h2&gt;
+
+        &lt;ul aria-labelledby="toc" role="list"&gt;
+      </code></p>
+      <p>The role of list there accounts for a weird behaviour in Safari that happens when <code>list-style-type</code> is set to <code>none</code>.</p>
+
+      <p>This increases the verbosity of this scrolling area across the board, even when it is in the responsive mode that doesn't scroll. I used <code>aria-hidden=true</code> on the tag used for <code>aria-labelledby</code> but some might not like that I've chosen that approach. I simply prefer it aesthetically.</p>
+
+      <p>For a robust explanation on accessible keyboard scrolling areas, please read <a href="https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html">Keyboard-Only Scrolling Areas by Adrian Roselli.</a></p>
+
+
+            
+
+
+            
+
+        </main>
+        <footer>
+            <a href="../entries.html" class="back-button">Back to Entries</a>
+
+        </footer>
+
+
+    </body>
+</html>
