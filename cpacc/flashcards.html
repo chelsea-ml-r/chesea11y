@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>FlashCard Quiz</title>
+        <link rel="stylesheet" href="../selo.css">
+        <link rel="stylesheet" href="flashcards.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <header>
+        <div class="skip">
+        </div>
+        <nav>
+            <a href="../cpacc.html" class="back-button">Back to CPACC Study Notes</a>
+        </nav>
+        </header>
+        <main>
+
+
+            <h1>CPACC Multiple Choice Game</h1>
+            <section class="instructions">
+            <p><strong>ATTENTION: These are not official testing questions.</strong> </p>
+            <p>As part of my studies, I've gone ahead and made many practice questions that I am using for my personal study, using the multiple choice format. I've attempted to set the difficulty of these to be fairly high, and I've attempted to model them around the Recommended Study Activities described in the Body of Knowledge.</p>
+
+            <p>You can either view the questions in web format, or choose to play the little multiple-choice Javascript applet I have created. You must have Javascript enabled in order to start the game.</p>
+            <button id="showgame">Play the Game.</button>
+            <button id="showquestions">Just view the Questions.</button>
+            </section>
+            
+
+            <section class="js-only">
+                <div class="topbar">
+                    <p class="total-number">Question #<span id="ordinal">9</span> out of <span id="out-of">80</span></p>
+                    <p class="accuracy">Current Accuracy: <span id="accuracy-score"></span>%</p>
+                </div>
+
+                <fieldset id="question-area">
+                    <legend tabindex="-1" id="test">What is the purpose of the European Social Charter?</legend>
+
+                    <button class="incorrectOption option">
+                        To institute civil and political rights in Europe.                    
+                    </button>
+                    <button class="incorrectOption option">
+                        Article II, which states the goal of eliminating all discrimination against and the full integration of Disabled people, and Article III, which demands services and public spaces to be made progressively more accessible.                    
+                    </button>
+                    <button class="incorrectOption option">
+                        To enforce DEI and accessibility measures.                    
+                    </button>
+                    <button class="correctOption option">
+                        To grant people with disabilities social integration.                    
+                    </button>
+                    <button id="proceed">Proceed</button>
+                </fieldset>
+
+
+                <button id="end">End Game</button>
+            
+            </section>
+
+           <section class="no-js">
+
+            <!--
+            <div class="question"><h3>Question</h3>
+            <ul>
+                <li class="correct"></li>
+                <li class="false"></li>
+                <li class="false"></li>
+                <li class="false"></li>
+            </ul>
+            </div>
+            -->
+
+            <h2>Domain 1</h2>
+            <div class="question"><h3>The UN uses this style of language in their communication.</h3>
+                <ul>
+                    <li class="correct">People with disabilities, especially people with psychological disabilities, are deserving of human rights.</li>
+                    <li class="false">Disabled people, especially people with psychological disabilities, are deserving of human rights</li>
+                    <li class="false">People with disabilities, especially psychologically-disabled people, are deserving of human rights</li>
+                    <li class="false">Disabled people, especially psychologically-disabled people, are deserving of human rights</li>
+                </ul>
+            </div>
+            <div class="question"><h3>According to the IAAP, why might a Disabled self-advocate use identity-first language to describe themself?</h3>
+                <ul>
+                    <li class="correct">A self-advocate might use it to emphasize the importance of disability on ther own identity.</li>
+                    <li class="false">A self-advocate might do it to express solidarity with a larger Disabled community.</li>
+                    <li class="false">A self-advocate might feel person-first language is stigmatizing.</li>
+                    <li class="false">A self-advocate might be from an older generation.</li>
+                </ul>
+            </div>
+            <div class="question"><h3>What does the UN not recommend you to do in its Inclusive Language Guidelines?</h3>
+                <ul>
+                    <li class="correct">Use the phrase "people with disabilities" </li>
+                    <li class="false">Avoid sayings like 'disAbility' and 'differently abled'</li>
+                    <li class="false">View Disability as not being a negative thing inherently.</li>
+                    <li class="false">Say casual idioms like, 'See you later' and 'I'm listening to you.'</li>
+                </ul>
+            </div>
+            <div class="question"><h3>When you meet up with a Blind person, you should:</h3>
+                <ul>
+                    <li class="correct">Introduce yourself and who you're with.</li>
+                    <li class="false">Ignore them and mind your own business.</li>
+                    <li class="false">Read written information aloud.</li>
+                    <li class="false">Give them a tour of the facility.</li>
+                </ul>
+            </div>
+            <div class="question"><h3>'Neurodivergent' is a label that doesn't typically apply to people with this diagnostic label:</h3>
+                <ul>
+                    <li class="correct">Chronic fatigue.</li>
+                    <li class="false">Autism Spectrum Disorder.</li>
+                    <li class="false">Learning disability.</li>
+                    <li class="false">Attention Deficit Hyperactivity Disorder.</li>
+                </ul>
+                </div>
+          
+            <h2>Domain 2</h2>
+            <div class="question"><h3>Which of is included in the Universal Design for Learning Principles?</h3>
+                <ul>
+                    <li class="correct">Offer options in response and navigation.</li>
+                    <li class="false">Discourage unconscious action in tasks that require vigilance</li>
+                    <li class="false">Provide warnings of hazards and errors.</li>
+                    <li class="false">Provide the same means of use for all users: identical whenever possible; equivalent when not.</li>
+                </ul>
+            </div>
+            <div class="question"><h3>Which is not a guideline to the UD Principle: Size and Space for Approach andn Use.</h3>
+                <ul>
+                    <li class="correct">Ensure routes to all components are clear of hazards.</li>
+                    <li class="false">Make reaching to all components comfortable for any seated or standing user</li>
+                    <li class="false">Provide a clear line of sight to important elements for any seated or standing user</li>
+                    <li class="false">Provide adequate space for the use of assistive devices</li>
+                </ul>
+            </div>
+            <div class="question"><h3>Which is not a guideline to the UD Principle: Low Physical Effort.</h3>
+                <ul>
+                    <li class="correct">Allow user to take breaks.</li>
+                    <li class="false">Use reasonable operating forces</li>
+                    <li class="false">Minimize repetitive actions</li>
+                    <li class="false">Minimize sustained physical effort</li>
+                </ul>
+            </div>
+            <div class="question"><h3>Which is not a guideline to the UD Principle: Simple and Intuitive Use</h3>
+                <ul>
+                    <li class="correct">Support knowledge across languages using recognizable symbols.</li>
+                    <li class="false">Be consistent with user expectations and intuition</li>
+                    <li class="false">Accommodate a wide range of literacy and language skills</li>
+                    <li class="false">Arrange information consistent with its importance</li>
+                </ul>
+            </div>
+            <div class="question"><h3>Which is not a guideline to the UD Principle: Equitable Use</h3>
+                <ul>
+                    <li class="correct">Provide the same means of use for all users: identical whenever possible; over-engineered when not.</li>
+                    <li class="false">Provisions for privacy, security, and safety should be equally available to all users</li>
+                    <li class="false">Make the design appealing to all users</li>
+                    <li class="false">Avoid segregating or stigmatizing any users</li>
+                </ul>
+            </div>
+            <div class="question"><h3>Which is not a guideline to the UD Principle: Flexibility in Use</h3>
+                <ul>
+                    <li class="correct">Make reaching to all components comfortable for any seated or standing user</li>
+                    <li class="false">Accommodate right- or left-handed access and use</li>
+                    <li class="false">Facilitate the user’s accuracy and precision</li>
+                    <li class="false">Provide adaptability to the user’s pace</li>
+                </ul>
+                </div>
+            <div class="question"><h3>According to a famous catchphrase, "Simply put, [this kind of design] is good design."</h3>
+                <ul>
+                    <li class="correct">Universal Design</li>
+                    <li class="false">Ethical Design</li>
+                    <li class="false">Inclusive Design</li>
+                    <li class="false">Sustainable Design</li>
+                </ul>
+                </div>
+
+            
+    
+            
+            
+
+
+            <h2>Domain 3</h2>
+
+            <div class="question"><h3>What is the purpose of the European Social Charter?</h3>
+            <ul>
+                <li class="correct">To provide a framework for social and economic rights in Europe.</li>
+                <li class="false">To enforce DEI and accessibility measures.</li>
+                <li class="false">To institute civil and political rights in Europe.</li>
+                <li class="false">To grant people with disabilities social integration.</li>
+            </ul></div>
+
+            <div class="question"><h3>How is the European Social Charter related to accessibility?</h3>
+            <ul>
+                <li class="correct">It granted the rights of people with disabilities independence, social integration, and participation in community life.</li>
+                <li class="false">It protects all vulnerable populations, but doesn't give any special attention to Disability rights.</li>
+                <li class="false">It provided precedent for the EU Charter of Fundamental Human Rights, which is the only Charter that actually matters. </li>
+                <li class="false">It granted the Disabled population the right to be represented politically.</li>
+            </ul></div>
+
+            <div class="question"><h3>What is the purpose of the European Convention on Human Rights?</h3>
+            <ul>
+                <li class="correct">To guarantee civil and political rights to all.</li>
+                <li class="false">It implements the CRPD on the regional European level.</li>
+                <li class="false">To provide a human rights framework for the EU.</li>
+                <li class="false">To put a stop to the Armenian genocide.</li>
+            </ul></div>
+            <div class="question"><h3>The purpose of this document is to grant civil, political, economic, and social rights. </h3>
+            <ul>
+                <li class="correct">The EU Charter of Fundamental Human Rights, interpreted by the Court Justice of the EU.</li>
+                <li class="false">The EU Charter of Fundamental Human Rights, interpreted by the European Court of Rights.</li>
+                <li class="false">The European Human Rights Convention, interpreted by the European Court of Rights</li>
+                <li class="false">The European Human Rights Convention, interpreted by the Court Justice of the EU.</li>
+            </ul></div>
+
+            <div class="question"><h3>Which articles belong to the EU Charter of Fundamental Rights?</h3>
+            <ul>
+                <li class="correct">Article 26, the right for Disabled people to live in the community, and Article 21, which prohibits discimination against various characteristics including disability status.</li>
+                <li class="false">Article 11, which prevents harmful practices against Disabled people, and Article 8, which calls on Member States to raise awareness about Disability and stigma.</li>
+                <li class="false">Article II, which states the goal of eliminating all discrimination against and the full integration of Disabled people, and Article III, which demands services and public spaces to be made progressively more accessible.</li>
+                <li class="false">Article 3, which prohibits discimination on various characteristics including disability status, and Article 40, which addresses accessibility and the provision of social services to Disabled people.</li>
+            </ul></div>
+
+            <div class="question"><h3>Which articles are included in the African Charter on Human and Peoples' Rights?</h3>
+            <ul>
+                <li class="correct">Article 11, which prevents harmful practices against Disabled people, and Article 8, which calls on Member States to raise awareness about Disability and stigma.</li>
+                <li class="false">Article 26, the right for Disabled people to live in the community, and Article 21, which prohibits discimination against various characteristics including disability status.</li>
+                <li class="false">Article II, which states the goal of eliminating all discrimination against and the full integration of Disabled people, and Article III, which demands services and public spaces to be made progressively more accessible.</li>
+                <li class="false">Article 3, which prohibits discimination on various characteristics including disability status, and Article 40, which addresses accessibility and the provision of social services to Disabled people.</li>
+            </ul></div>
+
+            <div class="question"><h3>Which articles are included in the Inter-American Convention on the Elimination of All Forms of Discrimination Against Peoples with Disabilities?</h3>
+            <ul>
+                <li class="correct">Article II, which states the goal of eliminating all discrimination against and the full integration of Disabled people, and Article III, which demands services and public spaces to be made progressively more accessible.</li>
+                <li class="false">Article 11, which prevents harmful practices against Disabled people, and Article 8, which calls on Member States to raise awareness about Disability and stigma.</li>
+                <li class="false">Article 26, the right for Disabled people to live in the community, and Article 21, which prohibits discimination against various characteristics including disability status.</li>
+                <li class="false">Article 3, which prohibits discimination on various characteristics including disability status, and Article 40, which addresses accessibility and the provision of social services to Disabled people.</li>
+            </ul></div>
+
+
+            <div class="question"><h3>Which articles are included in the Leage of Arab States Charter of Human Rights?</h3>
+            <ul>
+                <li class="correct">Article 3, which prohibits discimination on various characteristics including disability status, and Article 40, which addresses accessibility and the provision of social services to Disabled people.</li>
+                <li class="false">Article II, which states the goal of eliminating all discrimination against and the full integration of Disabled people, and Article III, which demands services and public spaces to be made progressively more accessible.</li>
+                <li class="false">Article 11, which prevents harmful practices against Disabled people, and Article 8, which calls on Member States to raise awareness about Disability and stigma.</li>
+                <li class="false">Article 26, the right for Disabled people to live in the community, and Article 21, which prohibits discimination against various characteristics including disability status.</li>
+            </ul></div>
+
+            <div class="question"><h3>Which instrument came second?</h3>
+                <ul>
+                    <li class="correct">The Declaration on the Rights of Disabled Persons</li>
+                    <li class="false">The Convention on the Rights of Persons with Disabilities</li>
+                    <li class="false">The Universal Declaration of Human Rights</li>
+                    <li class="false">The Treaty of Marrakesh</li>
+                </ul>
+            </div>
+            
+
+        </section>
+
+
+            
+            
+
+
+
+
+
+
+
+            
+
+        </main>
+        <footer class="cycling">
+            <a href="../cpacc.html">Back to CPACC Notes Home</a>
+        </footer>
+
+  <script src="../javascript/flashcard-quiz.js"></script>
+
+    </body>
+    
+</html>
