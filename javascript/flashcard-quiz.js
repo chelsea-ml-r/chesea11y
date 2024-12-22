@@ -6,7 +6,6 @@ function Question(ask, answer, distractor1, distractor2, distractor3){
     this.distractor1 = distractors[0];
     this.distractor2 = distractors[1];
     this.distractor3 = distractors[2];
-    
 }
 
 ///general shuffle function from stackoverflow
@@ -104,7 +103,7 @@ function showFeedbackScreen(message){
 
     document.getElementById("proceed").style.display = "block";
     let test = document.getElementById("test");
-    test.innerText = message+" The answer is:\n"+questions[questionIndex].answer;
+    test.innerText = message+" The answer is:\n"+questions[questionIndex-1].answer;
     test.focus();
 
     //show the answer
@@ -114,10 +113,10 @@ function reset(){
     console.log(questionIndex+"reset");
     document.getElementById("proceed").style.display = "none";
 
-    questionIndex = questionIndex+1;  //increase question index
     if (questionIndex == questions.length){
         endGame();
     }else{
+        questionIndex = questionIndex+1;  //increase question index
         questionArea[1].style.display = "block";
         questionArea[2].style.display = "block";
         questionArea[3].style.display = "block";
@@ -132,7 +131,8 @@ function endGame(){
     questionArea[3].style.display = "none";
     questionArea[4].style.display = "none";
     document.getElementById("end").style.display = "none";
-    document.getElementById("test").innerText = "Your Game is Over. \nReload page to play again.";
+    document.getElementById("test").innerText = "Your Game is Over. \nYou answered "+questions.length+" questions with a total accuracy of "+document.getElementById("accuracy-score").innerText+"%.\nReload page to play again.";
+
 }
 
 function showQuestion(questionIndex){
@@ -142,7 +142,7 @@ function showQuestion(questionIndex){
         document.getElementById("accuracy-score").innerText = Math.round(points / (questionIndex-1)*100);
     }
     document.getElementById("ordinal").innerText = questionIndex;
-    question = questions[questionIndex];
+    question = questions[questionIndex-1];
     let test = document.getElementById("test");
     test.innerText = question.ask;
     test.focus();
@@ -182,7 +182,7 @@ function initiateGame(){
     quit = false;
     points = 0;
     questionIndex = 1;
-    document.getElementById("out-of").innerText = questions.length-1;
+    document.getElementById("out-of").innerText = questions.length;
     buttons = document.getElementsByClassName("option");
     for (i=0; i<3; i++){ //applies to first three buttons
         buttons[i].addEventListener("click", function(){

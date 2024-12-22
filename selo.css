@@ -72,6 +72,17 @@ details
     color: #463403;
 
   }
+  .skip a:focus {
+    color: var(--pale);
+    background-color: var(--accent-one);
+  }
+  main a:focus {
+    background-color: var(--pale);
+  
+    outline: 0.2em solid var(--accent-four);
+  }
+  
+  
    
 }
 @media (prefers-color-scheme: dark) {
@@ -94,6 +105,19 @@ details
    }
   div.note:nth-of-type(4n+2) h3{
     color: #FB9C70; /*hack contrast fix*/
+  }
+  .skip a, .skip a:visited {
+    background-color: var(--walo);
+    
+  }
+  .skip a:hover, .skip a:focus {
+    background-color: var(--accent-one);
+    color: var(--walo);
+    
+  }
+  nav ul:first-child li a:visited, nav ul:first-child li a{
+    color: var(--pimeja);
+    border-color: var(--pimeja);
   }
   
 }
@@ -450,7 +474,6 @@ footer {
     color: var(--accent-one);
   }
   main a:focus {
-    background-color: var(--pale);
   
     outline: 0.2em solid var(--accent-four);
   }
@@ -459,10 +482,7 @@ footer {
     font-weight: 401;
 
   }
-  .skip a:focus {
-    color: var(--pale);
-    background-color: var(--accent-one);
-  }
+  
   .skip a {
     background-color: var(--pale);
     color: var(--accent-one); 
@@ -471,19 +491,6 @@ footer {
   }
   blockquote {
     border-color: var(--pimeja);
-  }
-  .back-button[href="../entries.html"], .back-button[href="../cpacc.html"]
-    {
-    color: var(--walo);
-    display: block;
-    font-weight: 600;
-    padding: 1em 0;
-    background-color: var(--accent-three);
-  }
-
-  .back-button[href="../entries.html"]:focus, .back-button[href="../entries.html"]:hover, .back-button[href="../cpacc.html"]:focus, .back-button[href="../cpacc.html"]:hover, footer.cycling a:hover, footer.cycling a:focus {
-    background-color: var(--accent-one);
-    outline: none;
   }
   .schedule {
     display: flex;

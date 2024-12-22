@@ -1,7 +1,7 @@
 
 
 section.js-only {
-    border: 0.5em solid black;
+    border: 0.5em solid var(--pimeja);
     background-color: var(--walo);
     max-width: 60rem;
     display: none;
@@ -9,7 +9,7 @@ section.js-only {
 section.js-only button.option {
     flex: 45%;
     min-height: 10em;
-    border: 0.1em solid black;
+    border: 0.1em solid var(--pimeja);
     background-color: var(--walo);
     color: var(--pimeja);
     text-align: left;
@@ -24,6 +24,11 @@ section.js-only button.option:hover{
     background-color: var(--accent-one);
     color: var(--walo);
 }
+section.js-only button.option:focus{
+    outline: 0.3em solid var(--accent-three);
+}
+
+
 fieldset {
     border: none;
     display: flex;
@@ -31,14 +36,16 @@ fieldset {
     flex-grow: 100%;
 }
 button.end {
-    border: 0.1em solid black;
+    border: 0.1em solid var(--walo);
     display: block;
     margin-right: 0
 }
 fieldset legend {
     text-align: center;
     font-size: 2em;
-
+}
+fieldset legend:focus{
+    outline: 0.2em solid var(--accent-four);
 }
 #proceed {
     display: none;
@@ -58,4 +65,32 @@ main{
 }
 footer, header {
     max-width: none;
+}
+@media (max-width: 30rem){
+    .topbar {
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--pale);
+
+    }
+    .total-number, .accuracy {
+        padding: 0;
+        margin: 0.4em;
+    }
+    section.js-only button.option {
+        flex: 1;
+        min-height: 4em;
+    }
+    fieldset {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    fieldset legend{
+        text-align: left;
+        font-size: 1.2em;
+        padding: 0.2em;
+    }
+
+    
 }

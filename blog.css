@@ -1,0 +1,28 @@
+.back-button[href="index.html"], .back-button[href="index.html"]
+{
+color: var(--walo);
+display: block;
+font-weight: 600;
+padding: 1em 0;
+background-color: var(--accent-three);
+}
+
+.back-button[href="index.html"]:focus, .back-button[href="index.html"]:hover, .back-button[href="index.html"]:focus, .back-button[href="index.html"]:hover, footer.cycling a:hover, footer.cycling a:focus {
+background-color: var(--accent-one);
+outline: none;
+}
+.schedule {
+display: flex;
+flex-wrap: wrap;
+}
+.schedule dd, .schedule dt {
+flex: 50%;
+border-top: 0.01em dotted var(--pimeja);
+margin: 0.5em 0;
+}
+.timeline dd{
+flex: 80%;
+}
+.timeline dt{
+flex: 20%;
+}
