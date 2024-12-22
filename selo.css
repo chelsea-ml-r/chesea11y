@@ -72,6 +72,14 @@ details
     color: #463403;
 
   }
+  nav ul:first-child li a{
+    color: var(--walo);
+
+  }
+  .skip a {
+    background-color: var(--pale);
+    color: var(--accent-one); 
+  }
   .skip a:focus {
     color: var(--pale);
     background-color: var(--accent-one);
@@ -106,7 +114,7 @@ details
   div.note:nth-of-type(4n+2) h3{
     color: #FB9C70; /*hack contrast fix*/
   }
-  .skip a, .skip a:visited {
+  .skip a{
     background-color: var(--walo);
     
   }
@@ -240,8 +248,7 @@ h4, h5 {
 
 
 
-.skip a {
-}
+
 
 @media (max-width: 672px) {
   main {
@@ -424,10 +431,7 @@ footer {
     background-color: var(--accent-four);
   }
 
-  nav ul:first-child li a{
-    color: var(--walo);
-
-  }
+  
   details {
     background-color: var(--details);
   }
@@ -484,8 +488,6 @@ footer {
   }
   
   .skip a {
-    background-color: var(--pale);
-    color: var(--accent-one); 
     padding: 0 1em;
     margin: 0 0.5em;
   }
