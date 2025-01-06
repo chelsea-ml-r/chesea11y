@@ -1,11 +1,12 @@
-function Question(ask, answer, distractor1, distractor2, distractor3){
-    var distractors = [distractor1, distractor2, distractor3];
-    shuffleArray(distractors);
-    this.ask = ask;
-    this.answer = answer;
-    this.distractor1 = distractors[0];
-    this.distractor2 = distractors[1];
-    this.distractor3 = distractors[2];
+class Question {
+    constructor(ask, answer, ...distractors) {
+        shuffleArray(distractors);
+        this.ask = ask;
+        this.answer = answer;
+        this.distractor1 = distractors[0];
+        this.distractor2 = distractors[1];
+        this.distractor3 = distractors[2];
+    }
 }
 
 ///general shuffle function from stackoverflow
@@ -49,26 +50,24 @@ document.getElementsByClassName("no-js")[0].style.display ="none";
 const questionsData = document.getElementsByClassName("question");
 var questions = [];
 
-for (question of questionsData){
+for (question of questionsData) {
     var ask = "";
-    var answer ="";
-    var distractor1= "";
+    var answer = "";
+    var distractor1 = "";
     var distractor2 = "";
     var distractor3 = "";
-    for(child of question.children){
-        if(child.localName == "h3"){
+    for (child of question.children) {
+        if (child.localName == "h3") {
             ask = child.innerText;
-        }
-        else if(child.localName == "ul"){
+        } else if (child.localName == "ul") {
             for (listElement of child.children){
-                if (listElement.className == "correct"){
+                if (listElement.className == "correct") {
                     answer = listElement.innerText;
-                }else if(listElement.className == "false" && distractor1 == ""){
+                } else if (listElement.className == "false" && distractor1 == "") {
                     distractor1 = listElement.innerText;
-                }
-                else if(listElement.className == "false" && distractor2 == ""){
+                } else if (listElement.className == "false" && distractor2 == "") {
                     distractor2 = listElement.innerText;
-                }else if(listElement.className == "false" && distractor3 == ""){
+                } else if (listElement.className == "false" && distractor3 == "") {
                     distractor3 = listElement.innerText;
                 }
             }
@@ -83,7 +82,7 @@ for (question of questionsData){
     }
 }
 function correct(){
-    points = points + 1;
+    points++;
     console.log(questionIndex+"correct()");
 
     showFeedbackScreen("Correct.");
@@ -135,8 +134,17 @@ function endGame(){
 
 }
 
+/*
+let buttons = [........]
+
+shuffleArray(buttons)
+
+for (let i = 0; i < 3; i++) {
+    document.getElementById("button" + i).innerText = buttons[i]
+}
+*/
 function showQuestion(questionIndex){
-    console.log(questionIndex+"showQuestion");
+    console.log(questionIndex + "showQuestion");
 
     if (questionIndex != 1){
         document.getElementById("accuracy-score").innerText = Math.round(points / (questionIndex-1)*100);
@@ -146,7 +154,7 @@ function showQuestion(questionIndex){
     let test = document.getElementById("test");
     test.innerText = question.ask;
     test.focus();
-    let options = [question.distractor1, question.distractor2, question.distractor3,question.answer];
+    let options = [question.distractor1, question.distractor2, question.distractor3, question.answer];
     buttons = document.getElementsByClassName("option");
     let incorrectOptions = document.getElementsByClassName("incorrectOption");
     let correctOption = document.getElementsByClassName("correctOption")[0];
@@ -156,21 +164,13 @@ function showQuestion(questionIndex){
     //attach correct answer to correct node
     
     correctOption.innerText = options[3];
-    for (i=0; i<3; i++){ 
+    for (let i=0; i<3; i++){ 
         incorrectOptions[i].innerText = options[i];
     }
     /*need to scramble buttons*/
-    let randomizedIndex = Math.floor(Math.random()*(4)+1);
-    randomizedIndex = randomizedIndex-1;
-    if(randomizedIndex == 0){
-        buttons[3].after(buttons[0]);
-    }else if(randomizedIndex == 1){
-        buttons[3].after(buttons[1]);
+    for (let i = 0; i < 3; i++) {
+        buttons[3].after(buttons[Math.floor(Math.random()*3)]);
     }
-    if(randomizedIndex == 2){        
-        buttons[3].after(buttons[2]);
-    }
-
 }
 
 function selectAnswer(textSelected){
@@ -184,7 +184,7 @@ function initiateGame(){
     questionIndex = 1;
     document.getElementById("out-of").innerText = questions.length;
     buttons = document.getElementsByClassName("option");
-    for (i=0; i<3; i++){ //applies to first three buttons
+    for (let i=0; i<3; i++){ //applies to first three buttons
         buttons[i].addEventListener("click", function(){
             incorrect()});
     }
