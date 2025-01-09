@@ -6,6 +6,9 @@ font-weight: 600;
 padding: 1em 0;
 background-color: var(--accent-three);
 }
+header .skip{
+    margin-top: 0;
+}
 
 .back-button[href="index.html"]:focus, .back-button[href="index.html"]:hover, .back-button[href="index.html"]:focus, .back-button[href="index.html"]:hover, footer.cycling a:hover, footer.cycling a:focus {
 background-color: var(--accent-one);

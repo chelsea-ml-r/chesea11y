@@ -82,6 +82,14 @@ details
     color: var(--walo);
 
   }
+  header .skip{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 2em;
+    margin-top: -2em;
+  }
   .skip a {
     background-color: var(--pale);
     color: var(--accent-one); 
@@ -193,7 +201,7 @@ header {
     text-decoration-line: underline;
   }
   nav li a:not(.current){
-    border-width: 0.02em;
+    border-width: 0.06em;
     border-style: solid;
     padding: 0.4em;
     text-decoration: none;
@@ -510,6 +518,7 @@ footer {
   .skip a {
     padding: 0 1em;
     margin: 0 0.5em;
+
   }
   blockquote {
     border-color: var(--pimeja);
