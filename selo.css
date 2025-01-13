@@ -78,26 +78,22 @@ details
     color: #463403;
 
   }
+  
   nav ul:first-child li a{
     color: var(--walo);
 
   }
-  header .skip{
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    top: 2em;
-    margin-top: -2em;
-  }
-  .skip a {
+  
+  main .skip a {
     background-color: var(--pale);
     color: var(--accent-one); 
   }
-  .skip a:focus {
+  main .skip a:focus {
     color: var(--pale);
     background-color: var(--accent-one);
   }
+  
+
   main a:focus {
     background-color: var(--pale);
   
@@ -108,6 +104,14 @@ details
     background-color: var(--walo);
     color: var(--accent-four);
 
+  }
+  header .skip a{
+    color: var(--pale);
+  }
+  header .skip a:focus, header .skip a:hover{
+    background-color: var(--pale);
+    color: var(--accent-four);
+    outline: none;
   }
   
   
@@ -159,7 +163,25 @@ details
     color: var(--pimeja);
 
   }
+  header .skip a{
+    color: var(--walo);
+    background-color: var(--accent-four);
+  }
+  header .skip a:focus, header .skip a:hover{
+    background-color: var(--walo);
+    color: var(--accent-four);
+    outline: none;
+  }
   
+}
+
+header .skip{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 2em;
+  margin-top: -2em;
 }
 html {
   font-family: sans-serif;
@@ -176,6 +198,7 @@ header {
 }
   nav {
     list-style-type: none;
+    padding-top: 2em;
   }
   nav ul{
     padding: 1.5em;
@@ -239,6 +262,7 @@ li, p, dd, dt {
   line-height: 1.6em;
   margin: 1em 0;
   font-size: 1.1rem;
+  font-weight: 450;
 }
 
 blockquote {
@@ -250,12 +274,18 @@ blockquote {
 dt {
   font-weight: bold;
 }
+dd.correct::before{
+  content: '✅ ';
+}
 
 h3, h4, h5 {
   padding-top: 0.5em;
 }
 .note img {
   max-width: 100%;
+}
+h5{
+  font-size: 1.03em;
 }
 
 
@@ -462,6 +492,7 @@ footer {
   }
   nav {
     background-color: var(--accent-four);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
 
   
@@ -485,8 +516,8 @@ footer {
 
   main {
     background-color: var(--walo);
-    color: var(--pimeja)
-
+    color: var(--pimeja);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
   h1, h2, h3, h4 {
     color: var(--accent-one)
@@ -502,7 +533,7 @@ footer {
   a {
     color: var(--accent-three);
   }
-  a:visited {
+  main a:visited {
     color: var(--accent-one);
   }
   main a:focus {
