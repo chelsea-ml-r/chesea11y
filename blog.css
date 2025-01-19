@@ -32,3 +32,20 @@ flex: 80%;
 .timeline dt{
 flex: 20%;
 }
+pre .long-code{
+  background: var(--pale);
+  display: block;
+  font-size: 1.1rem;
+
+}code{
+  font-size: 1.1rem;
+}
+
+
+
+pre{
+  white-space: pre-wrap;
+  tab-size: 4;
+  position: relative;
+  overflow-y: hidden;
+}
