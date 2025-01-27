@@ -40,6 +40,21 @@ pre .long-code{
 }code{
   font-size: 1.1rem;
 }
+table.stats, .stats td, .stats th{
+  border: 0.1em solid var(--pimeja);
+  border-collapse: collapse;
+}
+.stats tr:nth-last-of-type(2n){
+  background-color: var(--notes-yellow);
+}
+
+section.example, .example p {
+  background-color: var(--notes-yellow);
+  margin-inline-start: 2em;
+  padding-block: 0.3em;
+  font-size: 0.98em;
+
+}
 
 
 

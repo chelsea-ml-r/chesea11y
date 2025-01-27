@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"> <script data-goatcounter="https://chelsea11y.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+        <meta name="description" content="Or alternatively, 'The Way WCAG Structures Success Criteria for Accessible Synchronized Audiovisual Media Makes No Sense.'">
+        <title>Transcripts and WCAG 2.X — ChelseA11y Learning</title>
+        <link rel="stylesheet" href="../selo.css">
+        <link rel="stylesheet" href="../blog.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <header>
+        <div class="skip">
+        </div>
+        <nav>
+            <a href="index.html" class="back-button">Back to Entries</a>
+        </nav>
+        </header>
+        <main>
+
+            <h1>Um Actually, You Don't *Need* A Transcript</h1>
+            <p>Composed Wednesday, January 22, 2025</p>
+            <p>Or alternatively, "The Way WCAG Structures Success Criteria for Accessible Synchronized Audiovisual Media Makes No Sense."</p><p> In this article, we discuss what it takes to for synchronized media to be WCAG-conformant at Levels A and AA, how WCAG's approach incentivizes inaccessibility for DeafBlind people, and how countries around the world with digital accessibility standards have legislated exceptions to circumvent this.</p>
+
+            <hr>
+            <p>A user posed a question to the <a href="https://www.facebook.com/groups/WCAGa11y/posts/1986992445120713/">WCAG A11y Professionals Facebook group</a> regarding whether fully captioned pieces of multimedia also <strong>needed</strong> to be supplied with a transcript. The few voices that chimed in responded enthusiastically that a transcript was indeed <strong>required</strong>.</p>
+            <p>I'm surprised that nobody challenged this. According to WCAG, depending on the circumstances, you may not actually <strong>require</strong> one. But before we get into the technicalities and decision trees, a small disclaimer and definition of terms.</p>
+
+
+            <p><a href="#primary-argument">Skip background information.</a></p>
+            <h2>Have a Transcript Anyway</h2>
+
+            <h3>People Rely on Them</h3>
+
+            <p>Descriptive transcripts are the only reliable way for <a href="https://lithub.com/john-lee-clark-on-why-capitalization-matters-to-the-deafblind-community/">DeafBlind</a> people with high hearing and vision loss to access audiovisual media.</p>
+            <p>Descriptive transcripts are also the only way for Blind people to access audiovisual media delivered in languages they do not understand. </p>
+            
+            <section class="example">
+                <p>For example, a Thai-speaking Blind person may be able to access the enormously popular Korean-language Netflix show <em>Squid Game</em>. They won't be able to read the subtitles, but <em>Squid Game</em> has an enormous internationalization budget and it is dubbed in Thai and has Thai audio description. </p>
+                <p>For a smaller Netflix show like <em>Inside Job</em>, they would have to rely on a descriptive transcript. As is the case for most shows on Netflix, <em>Inside Job</em> has no Thai dub or audio description. </p><p>Except Netflix doesn't provide descriptive transcripts, so they would just be blocked entirely, just like a good portion of the DeafBlind population.</p>
+            </section>
+            <p>Captions are not a substitute for descriptive transcripts, for three reasons:</p>
+            <ul>
+                <li><strong>No description of visual things</strong>. Additionally, most caption authors assume that you can see who's talking and only annotate the sources of voices that are offscreen.</li>
+                <li><strong>Not easily downloadable</strong>. You can't even download caption files off of YouTube without reaching for some sketchy workarounds.</li>
+                <li><strong>Not meant for human consumption</strong>. Caption files contain a lot of metadata and code meant for the computer. Especially if you're consuming them in a linear reading mode like Braille where you can't visually filter out where the actually captioned text is, you are likely going to mostly be reading numbers and tags. <a href="https://matesub.com/resources/subtitle-file-formats">Matesub</a> compares the underlying code of various caption formats so you can imagine how difficult it would be to parse through some of these. </li>
+            </ul>
+            <h3>Everyone Benefits From Them</h3>
+            <p>Transcripts are good for SEO. They are a driver of efficiency, being faster to consume than the video itself.</p>
+            <p>If you have an existing caption file, transcripts are relatively easy to prepare. Unlike audio-description, which must deal with the unique challenge of succinctly providing visual context in the time-constrained pauses between spoken dialogue, transcripts have no time limit and can provide more comprehensive descriptions.</p>
+            <h3>So Have a Transcript Anyway</h3>
+            <p>My intention in writing this article is not to discourage the use of transcripts, but to point out what I view to be a major flaw in WCAG 2.X. <strong>If your audiovisual media does not have a descriptive transcript</strong>, regardless of whether it is conformant to WCAG, it is my belief that <strong>your product is not accessible</strong>.</p>
+            <p>Most entities aiming for WCAG 2.X Level AA will have captions on all their audiovisual media. It does not take an enormous amount of effort and resources to transform those captions into a transcript format or to a descriptive transcript format.</p>
+        
+            <h3>Learn more about the benefits and necessity of transcripts:</h3>
+            <ul>
+                <li><a href="https://habengirma.com/2024/05/16/add-descriptive-transcripts-to-make-your-videos-more-accessible/">Haben Girma: Add Descriptive Transcripts to Make Your Videos More Accessible</a></li>
+                <li><a href="https://www.accessibilityassociation.org/s/podcast-episode-41">Haben Girma interviewed by IAAP on descriptive transcrips and DeafBlind culture</a></li>
+                <li><a href="https://www.w3.org/WAI/media/av/transcripts/">W3C on Transcripts</a></li>
+            </ul>
+            <p>Now, let's talk about how they aren't necessary for conformance to WCAG 2.X Level AA.</p>
+
+            <h2 id="primary-argument">Transcripts in WCAG 2.X</h2>
+
+            <p>A small note before we begin-- I say 'transcripts' but our scope is restricted to addressing descriptive transcripts for <strong>prerecorded audiovisual media</strong>. Audio-only media must have a transcript according to <a href="">SC 1.2.1 Audio-only and Video-only (Prerecorded)</a>.</p>
+
+            <h3>Examining The Criteria in Question as a Bad Faith Actor</h3>
+
+            <h4>Introducing Peter</h4>
+
+            <p>Let's pretend that <strong>Perniciously Pragmatic Peter</strong> is reviewing the WCAG documentation. Perniciously Pragmatic Peter is overseeing the accessibility efforts of his company and is aiming to create an implementation that meets the bar and goes absolutely no further.</p>
+            <p>Perniciously Pragmatic Peter is always going to select the most cost-effective implementation. He doesn't care about maximizing gains from the accessibility program. He sees no value from adding accessibility into the company except decreasing legal risk.</p>
+            <p>Perniciously Pragmatic Peter isn't malicious, he's just doing business as he's always done for the past thirty five years. Peter's doing his job, checking boxes, and going back to wife, adult children and golfing club. He doesn't have many Disabled people in his life, with the exception of his aging father (who doesn't use technology anyways).</p>
+
+            <p>Let's see how Perniciously Pragmatic Peter would operate given different conformance models.</p>
+
+            
+
+            <h4>Level A</h4>
+            <ul>
+                <li><a href="https://www.w3.org/TR/WCAG22/#captions-prerecorded">SC 1.2.2 Captions (Prerecorded)</a>. All prerecorded audiovisual media must be provided with captions.</li>
+                <li><a href="https://www.w3.org/TR/WCAG22/#audio-description-or-media-alternative-prerecorded">SC 1.2.3 Audio Description or Media Alternative (Prerecorded)</a>. All prerecorded audiovisual media must have <strong>either</strong> a transcript, or audio description.</li>
+            </ul>
+
+            <p>Pragmatic organizations looking to meet WCAG 2.X Level A will have captions for their media. To meet SC 1.2.3, it makes more financial sense for them to develop a transcript, building off the existing captions, than it does to organize remedial audio description. </p>
+
+            <h4>Level AA</h4>
+            <ul>
+                <li><a href="https://www.w3.org/TR/WCAG22/#audio-description-prerecorded">SC 1.2.5 Audio Description (Prerecorded).</a> All prerecorded media must have an audio description.</li>
+            </ul>
+            <p>However, the reality is that in most juristictions, pragmatic organizations looking to avoid lawsuit complications will not be aiming for Level A. They will be aiming for Level AA, where audio descriptions are necessary. Meeting SC 1.2.5 immediatly means that SC 1.2.3 is met. Pragmatic organizations will stop their accessibility efforts here. </p>
+
+            <h4>Level AAA</h4>
+            <ul>
+                <li><a href="https://www.w3.org/TR/WCAG22/#media-alternative-prerecorded">SC 1.2.8 Media Alternative (Prerecorded)</a>. All prerecorded media must have a transcript.
+                </li>
+            </ul>
+
+            <p>Level AAA is beyond the scope of the conformance model. Level AAA also positions itself as containing success criteria that are unrealistic to achieve. The inclusion of descriptive transcripts as a Level AAA criterion gives the impression that completing it is unnecessary, that nobody is expecting you to complete it because it requires so much to additional effort to actually execute.</p>
+
+            <p>However, this impression of a massive amount of additional effort is completely misguided.</p>
+
+            <p>A website that meets Level AA already has all the content required of a descriptive transcript. Simply format the text from the caption file and the text from the audio description alongside one another in a single document. You have a descriptive transcript!</p>
+
+            <h3>Fallen Through the Cracks</h3>
+
+            <p>For organizations only interested in accessibility for the legal implications, providing only audio description is a very practical choice. Most legal frameworks rely on WCAG 2.X Level AA, and that is what most organizations also target.</p>
+
+            <p>Satisfying 'Audio Description (Prerecorded)' immediatly satifies 'Audio Description or Media Alternative (Prerecorded).' By classifying Media Alternative (Prerecorded), you're giving the false impression that a transcript is super hard to make.</p>
+
+            <p>.</p>
+
+            <p>Capitalism's evil decision tree to justify whether you should include a transcript.</p>
+
+            <p>Are you required to </p>
+
+
+            <h3>Okay????</h3>
+
+            
+
+
+
+
+            <p>If podcast: You need a transcript vsv 1.2.1 Audio-Only.</p>
+            
+            <p>If video (level a) must satisfy 1.2.2 captions and 1.2.3 via either</p>
+            <ul>
+                <li>audio description</li>
+                <li>transcript</li>
+            </ul>
+            
+            <p>if video (level aa)/EN 301 549/section 508 must satisfy 1.2.2 captions and 1.2.5 audio descriptions, which satisfies 1.2.3 by default.</p>
+            <p>you are economically discouraged from satisfying 1.2.3 at this stage.</p>
+            Kenya Standard DKS 2952-1:2021
+
+            if video (level aa) in ontario or quebec, treat it as level a
+
+            SGQRI 008 3.0 https://www.quebec.ca/gouvernement/ministere/cybersecurite-numerique/publications/standard-accessibilite-sites-web
+
+            in Aotearoa
+https://www.digital.govt.nz/standards-and-guidance/nz-government-web-standards/web-accessibility-standard-1-1
+3.3 Alternatives for time-based media (descriptive text transcripts)
+3.3.1 In order to meet WCAG SC 1.2.1 Audio-only and Video-only (Prerecorded) (external link) and WCAG SC 1.2.3 Audio Description or Media Alternative (Prerecorded) (external link), an alternative for time-based media (external link) (descriptive text transcript) must be provided in all cases for prerecorded (external link) audio-only (external link), prerecorded (external link) video-only (external link), and prerecorded synchronised media (external link).
+3.3.2 An audio description (external link) must be provided for prerecorded video-only or synchronised media that contains
+
+
+8 CCR 1501-11 Technology Accessibility Rules
+full adoption
+
+french standard is hard to interpret but it does seem like it says 'or' instead of 'and' 
+
+
+            
+
+
+
+            
+
+        </main>
+        <footer>
+            <a href="index.html" class="back-button">Back to Entries</a>
+
+        </footer>
+
+
+    </body>
+</html>
