@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"> <script data-goatcounter="https://chelsea11y.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+        <title>Demographics FlashCard Quiz</title>
+        <link rel="stylesheet" href="../selo.css">
+        <link rel="stylesheet" href="../blog.css">
+
+        <link rel="stylesheet" href="flashcards.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <header>
+        <div class="skip">
+        </div>
+        <nav>
+            <a href="index.html" class="back-button">Back to CPACC Study Notes</a>
+        </nav>
+        </header>
+        <main>
+
+
+            <h1>CPACC Demographics Trainer</h1>
+            <section class="instructions">
+            <p><strong>ATTENTION: These are not official testing questions.</strong> </p>
+            <p>This is a compilation of every demographic statistic presented in the October 2023 Body of Knowledge. Use this to memorize these important factoids that (I am making the assumption) are probably testable!</p>
+            <p>I used an LLM to save time in formatting some of these questions, but the data drawn from the Body of Knowledge was taken and rephrased entirely by hand.</p>
+
+            <button id="showgame">Play the Game.</button>
+            <button id="showquestions">Just view the Questions.</button>
+
+
+
+            </section>
+            
+
+            <section class="js-only">
+                <div class="topbar">
+                    <p class="total-number">Question #<span id="ordinal">9</span> out of <span id="out-of">80</span></p>
+                    <p class="accuracy">Current Accuracy: <span id="accuracy-score"></span>%</p>
+                </div>
+
+                <fieldset id="question-area">
+                    <legend tabindex="-1" id="test">What is the purpose of the European Social Charter?</legend>
+
+                    <button class="incorrectOption option">
+                        To institute civil and political rights in Europe.                    
+                    </button>
+                    <button class="incorrectOption option">
+                        Article II, which states the goal of eliminating all discrimination against and the full integration of Disabled people, and Article III, which demands services and public spaces to be made progressively more accessible.                    
+                    </button>
+                    <button class="incorrectOption option">
+                        To enforce DEI and accessibility measures.                    
+                    </button>
+                    <button class="correctOption option">
+                        To grant people with disabilities social integration.                    
+                    </button>
+                    <button id="proceed">Proceed</button>
+                </fieldset>
+
+
+                <button id="end">End Game</button>
+            
+            </section>
+
+           <section class="no-js">
+
+            <div class="unit">
+                <h3>Universal Declaraion of Human Rights</h3>
+                <p class="year">1948</p>
+                <p class="jurisdiction">UN</p>
+                <p class="type">Grant human rights.</p>
+            </div>
+
+            <div class="unit">
+                <h3>European Convention on Human Rights</h3>
+                <p class="year">1950</p>
+                <p class="jurisdiction">European Council</p>
+                <p class="type">Grant rights (civil)</p>
+            </div>
+            <div class="unit">
+                <h3>European Social Charter</h3>
+                <p class="year">1961</p>
+                <p class="jurisdiction">European Council</p>
+                <p class="type">Grant rights (1961)</p>
+            </div>
+            <div class="unit">
+                <h3>Declaration on the Rights of Disabled Persons</h3>
+                <p class="year">1975</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>African Charter on Human and Peoples' Rights</h3>
+                <p class="year">1981</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>European Social Charter Additional Protocol</h3>
+                <p class="year">1988</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Revised Charter (European Social Charter)</h3>
+                <p class="year">1996</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Inter-American Convention on the Elimination of All Forms of Discrimination Against Persons with Disabilities</h3>
+                <p class="year">1999</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>EU Charter of Fundamental Rights</h3>
+                <p class="year">2000</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Arab Charter on Human Rights</h3>
+                <p class="year">2004</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Charter of Rights of Persons with Disabilities</h3>
+                <p class="year">2006</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>ASEAN Human Rights Declaration</h3>
+                <p class="year">2012</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Incheon Strategy</h3>
+                <p class="year">2012</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Treaty of Marrakesh</h3>
+                <p class="year">2013</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>African Disability Rights Protocol</h3>
+                <p class="year">2013</p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Americans with Disabilities Act</h3>
+                <p class="year">1990</p>
+                <p class="jurisdiction">US</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Ontarians with Disabilities</h3>
+                <p class="year">2001</p>
+                <p class="jurisdiction">Ontario</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Accessibility for Ontarians with Disabilities Act</h3>
+                <p class="year">2005</p>
+                <p class="jurisdiction">Ontario</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Employment Equality Directive</h3>
+                <p class="year">2000</p>
+                <p class="jurisdiction">EU</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>The Equality Act</h3>
+                <p class="year">2010</p>
+                <p class="jurisdiction">UK</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Cypriot Persons with Disabilities Act</h3>
+                <p class="year">2000</p>
+                <p class="jurisdiction">Cyprus</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Loi pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées</h3>
+                <p class="year">2005</p>
+                <p class="jurisdiction">France</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>From Patient to Citizen Action Plan</h3>
+                <p class="year">2000</p>
+                <p class="jurisdiction">Sweden</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Act On The Prohibition Of Discrimination Against Persons With Disabilities And Remedy Against Infringement Of Their Rights</h3>
+                <p class="year">2017</p>
+                <p class="jurisdiction">Korea</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Services and Supports for Persons with Disabilities Act</h3>
+                <p class="year"></p>
+                <p class="jurisdiction">Japan</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Employment Promotion Act for Persons with Disabilities</h3>
+                <p class="year"></p>
+                <p class="jurisdiction">Japan</p>
+                <p class="type"></p>
+            </div>
+
+            <div class="unit">
+                <h3>Act on the Elimination of Discrimination against Persons with Disabilities</h3>
+                <p class="year">2013</p>
+                <p class="jurisdiction">Japan</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Rights of Persons with Disabilities Act</h3>
+                <p class="year">2016</p>
+                <p class="jurisdiction">India</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>21st Century Communications and Video Accessibility Act (CVAA)</h3>
+                <p class="year">2010</p>
+                <p class="jurisdiction">US Federal Communications Commission</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Air Carrier Access Act</h3>
+                <p class="year">1986</p>
+                <p class="jurisdiction">US Department of Transportation</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Air Carrier Access Amendments Act (Proposed)</h3>
+                <p class="year">2017 dead</p>
+                <p class="jurisdiction">US</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Audiovisual Media Services Directive (AVMSD)</h3>
+                <p class="year">2010</p>
+                <p class="jurisdiction">EU</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>European Electronics Communications Code</h3>
+                <p class="year">2018</p>
+                <p class="jurisdiction">EU</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>Regulation on electronic identification and trust services (eIDAS)</h3>
+                <p class="year">2014</p>
+                <p class="jurisdiction">EU</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>EU Procurement Directive</h3>
+                <p class="year"></p>
+                <p class="jurisdiction">EU</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>US Federal Acquisition Regulation</h3>
+                <p class="year"></p>
+                <p class="jurisdiction">US</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>European Web Accessibility Directive</h3>
+                <p class="year"></p>
+                <p class="jurisdiction">EU</p>
+                <p class="type"></p>
+            </div>
+            <div class="unit">
+                <h3>European Accessibility Act</h3>
+                <p class="year"></p>
+                <p class="jurisdiction">EU</p>
+                <p class="type"></p>
+            </div>
+
+
+
+            <!-- 
+                        (div.unit>h3+p.year+p.jurisdiction+p.type)
+
+              <div class="unit">
+                <h3></h3>
+                <p class="year"></p>
+                <p class="jurisdiction"></p>
+                <p class="type"></p>
+            </div>-->
+          
+         
+           
+            <!--
+            <div class="question"><h3>Question</h3>
+            <ul>
+                <li class="correct"></li>
+                <li class="false"></li>
+                <li class="false"></li>
+                <li class="false"></li>
+            </ul>
+            </div>
+            -->
+
+        </section>
+
+
+            
+            
+
+
+
+
+
+
+
+            
+
+        </main>
+        <footer class="cycling">
+            <a href="index.html">Back to CPACC Notes Home</a>
+        </footer>
+
+  <script src="../javascript/flashcard-quiz.js"></script>
+
+    </body>
+    
+</html>

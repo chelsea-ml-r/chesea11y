@@ -29,7 +29,7 @@
 
             <p><a href="#conclusion">Skip to Conclusion.</a></p>
 
-            <hr aria-hidden="trie">
+            <hr aria-hidden="true">
             
             <h2>Arguments Against Placeholders</h2>
 
@@ -38,9 +38,9 @@
 
             <p>As <a href="https://www.smashingmagazine.com/2018/06/placeholder-attribute/">Eric Bailey</a> notes, using a placeholder for 'a short hint intended to aid the user with data entry' may be 'technically correct.' However, he notes that despite this 'correctness,' we must contend with a couple important things:</p>
             <ul>
-                <li>the placeholder attribute doesn't get localized in automatic machine translation</li>
-                <li>such hints are better placed where they are persistently visible</li>
-                <li>placeholders can be mistaken for auto-filled information, even when they are designed carefully. high-contrast themes will almost always make them look like auto-filled text</li>
+                <li>The placeholder attribute doesn't get localized in automatic machine translation.</li>
+                <li>Such hints are better placed where they are persistently visible.</li>
+                <li>Placeholders can be mistaken for auto-filled information, even when they are designed carefully. High-contrast themes will almost always make them look like auto-filled text.</li>
             </ul>
 
                 
@@ -48,23 +48,24 @@
             <h2>Placeholders Are Not Exempt</h2>
             <p>Let's say you <strong>need</strong> a placeholder. Maybe you're not the one making the design call, or maybe you're using placeholder text in the 'Search' bar of your website. Using the placeholder text, 'Search' on a search box is such a common idiom that <a href="https://adrianroselli.com/2023/01/comparing-manual-and-free-automated-wcag-reviews.html">Adrian Roselli makes a special 3.3.2 exception for it</a>.</p>
 
-                <p><strong>Whatever your reason, you're here. So let's make your placeholder have accessible colour contrast.</strong></p>
+            <p><strong>Whatever your reason, you're here. So let's make your placeholder have accessible colour contrast.</strong></p>
+            
             <p>Remember: you need to choose a colour that is both...</p>
             <ul>
                 <li>Lighter than your normal text so it doesn't get mistaken for auto-filled text.</li>
                 <li>Meets <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG contrast minimum thresholds</a>.</li>
             </ul>
-                   
-            <p>A tough task! Let's say that you've decided a contrast of 4.59:1 is a satisfactory ratio for your placeholder colour.</p>
+            <p>You <strong>cannot</strong> just use the default placeholder styling. In certain browsers, it will fail contrast minimum by default.</p>
+            <p>Let's say that you've decided a contrast of 4.59:1 is a satisfactory ratio for your placeholder colour.</p>
             <p class="good-placeholder-text">
                 #7F717F and #FFFFF have a contrast ratio of 4.59:1.
             </p>
             <p>It is reasonably legible. Now that you've diligently picked out your colours, let's apply the <code>.good-placeholder-text</code> styling  to our placeholder.</p>
             <p>When rendered in Firefox <span aria-hidden="true">as simulated here:</span></p>
-            <form class="demo" aria-hidden: true>
+            <form class="demo" aria-hidden="true">
                 
             <label for="good-placeholder-text"> Enter your Name:</label>
-                <input type="name" id="good-placeholder-text" placeholder="eg. Aria Whacag" class="good-placeholder-text firefox-simulation">
+                <input disabled type="name" id="good-placeholder-text" placeholder="eg. Aria Whacag" class="good-placeholder-text firefox-simulation">
             </form>
             <p>Our placeholder text has far lower contrast than we expected it to have.</p>
             <h2>The Reason</h2>
@@ -81,20 +82,20 @@
             </pre>
             <p><strong>Opacity of the placeholder pseudoelement is set to 0.54% by default.</strong></p> 
             <p>While we thought we achieved a colour ratio that was 4.59:1, we actually ended up with a ratio of about 2.04:1.</p>
-            <p>This colour contrast failure will not be detected by automated contrast checkers, and you also won't be able to get the colour ratio just by stealing the colour from Inspector tools, since it doesn't show the styling of the placeholder pseudoelement basically anywhere.</p>
+            <p>This colour contrast failure will not be detected by automated contrast checkers.</p>
 
             <h2 id="conclusion">Main Conclusions</h2>
             <p><strong>If you are styling a placeholder</strong>, style the placeholder pseudoelement (not the input element) and also set <code>opacity: 1</code>.</p>
             <form class="demo" aria-hidden="true">
 
             <label for="good-placeholder-text"> Enter your Name:</label>
-                <input type="name" id="good-placeholder-text" placeholder="eg. Aria Whacag" class="good-placeholder-text firefox-correction">
+                <input disabled type="name" id="good-placeholder-text" placeholder="eg. Aria Whacag" class="good-placeholder-text firefox-correction">
             </form>
             <p><strong>If you are auditing a site for colour contrast</strong>, make sure to look at any placeholders for weird contrast in Firefox specifically.</p>
             <hr>
 
             <h2>More Resources</h2>
-            <p><a href="https://www.w3.org/WAI/tutorials/forms/instructions/#styling">Erig Eggert also emphasizes the need to use both opacity and color attributes</a> to style placeholder elements, which have inaccessible color contrast by default in most browsers.</p>
+            <p><a href="https://www.w3.org/WAI/tutorials/forms/instructions/#styling">Erig Eggert also emphasizes the need to use both opacity and color attributes</a> to style placeholder elements, which have inaccessible color contrast by default in some browsers.</p>
             <p><a href="https://www.quirksmode.org/blog/archives/2015/12/styling_placeho.html">Peter-Paul Koch </a>wrote a very similar article to this one nearly ten years ago. I found this after I completed my version. Unfortunately I don't have much to offer as an update!</p>
 
 
@@ -106,8 +107,7 @@
             <p>The article's done, but I've compiled some examples for you to look at below. </p><p>I set the placeholders to red not because it's a good placeholder color (it's not), but because it might be easier to distinguish what the output is doing.</p>
             
             <h3>Styling Input Color</h3>
-            <p>Changing the <code>color</code> attribute on <code>input</code> elements will alter the colour of placeholder text on Firefox, but not in Chrome.</p>
-            <p>Unlike Firefox, Chrome sets a specific colour onto the placeholder. Chrome's default styling of the <code>::webkit-input-placeholder</code> pseudoelement used to be <code>#757575</code>, a light grey. This colour has a contrast ratio of 4.60 to 1 with pure white text, which meets contrast ratios. They then changed <code>::placeholder</code> to use <code>darkgray</code> which does not meet contrast ratios.</p>
+            <p>Changing the <code>color</code> attribute on <code>input</code> elements will alter the colour of placeholder text on Firefox, but not in Chrome or Safari. Unlike Firefox, Chrome/Blink and Safari/Webkit set a specific colour onto the placeholder.</p><p> Chrome's default styling of the <code>::webkit-input-placeholder</code> pseudoelement is <code>#757575</code>, a light grey. This colour has a contrast ratio of 4.60 to 1 with pure white text, which meets contrast ratios.</p><p> Safari's <code>::placeholder</code> pseudoelement uses the CSS color <code>darkgray</code>, which works out to be <code>#a9a9a9</code>. Safari's default styling does not meet contrast ratios.</p>
             <h4>The Code</h4>
             <pre>
                 <code class="long-code">
@@ -122,16 +122,21 @@
                 <label for="sample1"> Enter your Name:</label>
                 <input type="name" id="sample1" placeholder="eg. Aria Whacag" class="sample1">
             </form>
-            <h4>Screenshots</h4>
+            <h4>Screenshots (taken in light mode)</h4>
             <div class="gallery">
                 <div class="img-container">
                     <p>Firefox. Placeholder is red with 45% transparency</p>
                     <img src="entry5/sample1_firefox.png" alt="">
                 </div>
                 <div class="img-container">
-                    <p>Chrome. Placeholder is light grey</p>
+                    <p>Chrome. Placeholder is a light grey that meets contrast minimums</p>
                     <img src="entry5/sample1_chrome.png" alt="">
                 </div>
+                <div class="img-container">
+                    <p>Safari. Placeholder is light grey that doesn't meet contrast minimums.</p>
+                    <img src="entry5/sample1_safari.png" alt="">
+                </div>
+
             </div>
             
                 
@@ -165,6 +170,10 @@ input.sample2::placeholder {
                     <p>Chrome. Placeholder is red with full opacity.</p>
                     <img src="entry5/sample2_chrome.png" alt="">
                 </div>
+                <div class="img-container">
+                    <p>Safari. Placeholder is red with full opacity.</p>
+                    <img src="entry5/sample2_safari.png" alt="">
+                </div>
             </div>    
 
             <h3>Styling <code>::placeholder</code> Colour and Opacity</h3>
@@ -196,6 +205,10 @@ input.sample3::placeholder {
                 <div class="img-container">
                     <p>Chrome. Placeholder is red with full opacity.</p>
                     <img src="entry5/sample2_chrome.png" alt="">
+                </div>
+                <div class="img-container">
+                    <p>Safari. Placeholder is red with full opacity.</p>
+                    <img src="entry5/sample3_safari.png" alt="">
                 </div>
             </div>    
             <hr>
