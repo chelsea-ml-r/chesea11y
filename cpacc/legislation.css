@@ -1,0 +1,25 @@
+.no-js{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+div.unit {
+    border: 0.2em solid var(--pimeja);
+    border-radius: 0.6em;
+    flex: 40%;
+    padding: 1em;
+    margin: 0.5em 0.5em;
+
+}
+.unit h3{
+    max-width: 15em;
+    min-width: 10em;
+    padding: 0;
+    text-align: center;
+}
+.year::before{
+    content:'Year: '
+}
+.jurisdiction::before{
+    content:'Jurisdiction: '
+}
