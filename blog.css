@@ -55,6 +55,37 @@ section.example, .example p {
   font-size: 0.98em;
 
 }
+.broken {
+  table-layout: fixed;
+  max-width: 80em;
+  margin-bottom: 2em;
+}
+table.broken, .broken td, .broken th{
+  border: 0.1em solid var(--pimeja);
+  border-collapse: collapse;
+}
+.broken td{
+  max-width: 7em;
+  padding: 0.3em;
+  border-collapse: collapse;
+}
+.broken td.number {
+  max-width: 1em;
+}
+.broken td.name {
+  max-width: 12em;
+}
+.broken td.error {
+  max-width: 8em;
+  word-break: break-word;
+}
+.broken td.link {
+  max-width: 8em;
+  word-break: break-all;
+}
+.broken tr:first-child{
+  max-width: 1em;
+}
 
 
 

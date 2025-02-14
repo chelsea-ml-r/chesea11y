@@ -74,7 +74,7 @@ details
     --notes-blue: rgb(226, 230, 248);
     --details: rgb(231, 229, 229);
    }
-   div.note:nth-of-type(4n+3) a:visited{
+   .note:nth-of-type(4n+3) a:visited{
     color: #463403;
 
   }
@@ -141,7 +141,7 @@ details
 
     
    }
-  div.note:nth-of-type(4n+2) h3{
+  .note:nth-of-type(4n+2) h3{
     color: #FB9C70; /*hack contrast fix*/
   }
   .skip a{
@@ -575,32 +575,32 @@ footer {
   
   
   /*notes colours*/
-    div.note:nth-of-type(4n+1){
+    .note:nth-of-type(4n+1){
       background-color: var(--notes-green);
     }
-    div.note:nth-of-type(4n+1) a:hover, div.note:nth-of-type(4n+1) a:focus   {
+    .note:nth-of-type(4n+1) a:hover, .note:nth-of-type(4n+1) a:focus   {
       box-shadow: inset 0 0 0 0.8em var(--notes-pink);
     } 
-    div.note:nth-of-type(4n+2){
+    .note:nth-of-type(4n+2){
       background-color: var(--notes-yellow);
     }
 
-    div.note:nth-of-type(4n+2) a:hover, div.note:nth-of-type(4n+2) a:focus   {
+    .note:nth-of-type(4n+2) a:hover, .note:nth-of-type(4n+2) a:focus   {
       box-shadow: inset 0 0 0 0.8em var(--notes-blue);
     } 
-    div.note:nth-of-type(4n+3){
+    .note:nth-of-type(4n+3){
       background-color:var(--notes-pink);
     }
-    div.note:nth-of-type(4n+3) a:hover, div.note:nth-of-type(4n+3) a:focus   {
+    .note:nth-of-type(4n+3) a:hover, .note:nth-of-type(4n+3) a:focus   {
       box-shadow: inset 0 0 0 0.8em  var(--notes-green);
     } 
-    div.note:nth-of-type(4n+4){
+    .note:nth-of-type(4n+4){
       background-color: var(--notes-orange);
     }
-    div.note:nth-of-type(4n+4) a:hover, div.note:nth-of-type(4n+4) a:focus   {
+    .note:nth-of-type(4n+4) a:hover, .note:nth-of-type(4n+4) a:focus   {
       box-shadow: inset 0 0 0 0.8em  var(--notes-yellow);
     }
-    div.note a:focus, div.note a:hover {
+    .note a:focus, .note a:hover {
       color: var(--pimeja);
     }
 
