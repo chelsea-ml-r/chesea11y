@@ -41,7 +41,8 @@
     <h3>Chapter 2: Unicornization</h3>
 
     <ul role="list" id="contents-ul" class="notes-menu">
-      <li><span class="date">2025-02-14</span> <a id="tc-101" href="#note-101">Uncertainty</a></li>
+      <li><span class="date">2025-02-18</span> <a id="tc-102" href="#note-102">WATIL Day 2/2: Hamburgers and Videos</a></li>
+      <li><span class="date">2025-02-15</span> <a id="tc-101" href="#note-101">WATIL Day 1/2: Dialog and Subnav</a></li>
     </ul>
 
     <h3>Chapter 1: Journey to CPACC</h3>
@@ -170,14 +171,142 @@
     
     -->
 
+    <hr aria-hidden="true"><div class="note">
+    
+      <h2 id="note-102">While Auditing Today, I Learned... Day 2/2: Halfhazard Hamburgers and Video Controls</h2>
+      <p>Noted Tuesday, February 18, 2025</p>
+      <p>Back from the long weekend! Let's do our second case study!</p>
+      <h3>Intro to the Small Bakery Page</h3>
+      <p>Today, we've got a small bakery page with a small website, six pages. This site was also built in Wix, though it is much less complex than last day's site.</p>
+
+      <h3>Big Obvious Failures</h3>
+      <p>The bakery provides their menus in image format. Their breakfast menu, their lunch menu, the food menu for their satelite location, their sourdough schedule, their bread menu, and their catering menu (posted over four images with the helpful alt text of 1.png, 2.png, 3.png, and 5.png-- what happened to #4?) are all in image format and labelled with inappropriate alt text. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html">SC 1.4.5 Images of Text</a>. </p>
+      <p>They also have file names for alt text on about half of their images, though they have managed to account for decorative images about half of the time. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content">SC 1.1.1 Non-text Content</a>.</p>
+
+      <p>Things that are not headings are marked up as headings, and all heading hierarchy structure is totally all over the place. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships">SC 1.3.1 Info and Relationships</a>.</p>
+      <p>Not super obvious, but testing for <a href="https://www.w3.org/WAI/WCAG22/Understanding/text-spacing">SC 1.4.12 Text Spacing</a> using a bookmarklet causes the navigation to create a subnavigation node, where we see the exact same thing happen as we saw yesterday with Wix's inaccessible subnavigation pattern and all of its corresponding WCAG failures. I'm inclined to fail this under SC 1.4.4 Resize Text as one would only be exposed to the inaccessible component if text had been manually changed.</p>
+
+      <h3>Mobile Hamburger Navigation</h3>
+
+      <h4>A basic description</h4>
+      <p>A hamburger menu. Hit enter on it and it opens. It initially did not seem to respond to click events, but I tested and it's fine in Chromium and on Firefox mobile. I'm going to chalk this up to my Firefox being out of date.</p>
+      <p>Opening this makes visible a navigation laid on top of the content. Hitting the same button closes the navigation.</p>
+
+      <h4>Description of implementation</h4>
+      <p>It's a semantic button with <code>aria-haspopup="true"</code> The button's content is just an SVG of the three hamburger lines. The button is contained in a nav region with <code>aria-label="Site"</code>.</p>
+      <p>When activated, the button gets <code>aria-expanded="true"</code>, when closed it gets <code>aria-expanded="false"</code>. It does not have this attribute set to false when focus first lands on it, it requires interaction to get this attribute.</p>
+      <p>Upon activation, the site inserts an unordered list of links into in the same <code>nav</code> region, but before the button in the DOM order. Focus is not managed.</p>
+
+
+      <h4>Problems with this implementation.</h4>
+      <p>As the button contains but a SVG, there is no accessible name for the activating button. This does not entirely break the experience: Orca announces this as "navigation site button opens menu." TalkBack announces as "menu pop up button unlabelled graphic" in Chrome and "button menu double-tap to change" in Firefox mobile. Regardless, this too is a failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">SC 4.1.2 Name, Role, Value</a>.</p>
+      
+      <p>It doesn't manage focus correctly. The expanded content is placed before the trigger in the DOM, so where tabbing would normally direct focus into the expanded content, it instead tabs into the page. This honestly should be implemented as a modal, given that the navigation overlay takes up more than half of the page and obscures content. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order">SC 2.4.3 Focus Order</a>.</p>
+      <p>Additionally, hitting Esc does nothing. It is best practice for modals or layers that appear to be able to close on Esc.</p>
+
+      <p>More importantly, all of the links have the worst contrast that I've ever seen. With a foreground of <code>#000000</code> and a background of <code>#272521</code> bringing us to a whopping 1.37:1. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum">SC 1.4.3 Contrast (Minimum)</a>.</p>
+
+      <h3>Autoplaying Video Component</h3>
+      <h4>Basic description</h4>
+      <p>A custom video component that autoplays upon load on the main page. It appears like you can only click on it to pause and play. However, upon tabbing in you can access a series of controls. There's a video slider, audio control slider, full-screen button, and pause/play toggle. All of these controls are actually obscured though, and to actually use them with any ease, you would have to enter full screen mode or use a screen reader.</p>
+      <p>It appears that these controls are intended to be hidden, but they've only tried to do so by overlaying some div with a background color on top of it so one can't see it. The controls are still very much there.</p>
+      <p>Controls are fully visible on the mobile view, this seems to be a desktop-only thing.</p>
+
+      <h4>Description of the implementation</h4>
+      <p>I don't think it's worth it to flesh out every aspect of how the controls relate to the <code>video</code> and <code>canvas</code> elements that actually hold the video itself. There's a whole bunch of stuff held in a wrapper div with <code>tabindex="0"</code>. The important part to note are the roles and markup of the various controls within the bottom block of the component.</p>
+      <ul>
+        <li>Progress bar: <code>&ltdiv&gt</code> with the following attributes: <code>aria-valuetext="Already played [dynamic value]%"</code>, <code>aria-valuenow="[dynamic value]</code>, <code>tabindex="0"</code></li>
+        <li>Play button: <code>&ltbutton&gt</code> with the following  attributes: <code>aria-label="Play"</code>, <code>tabindex="0"</code>. Text of <code>aria-label</code> changes dynamically on press.</li>
+        <li>Volume control: <code>&ltbutton&gt</code> with the following  attributes: <code>aria-label="Unmute"</code>, <code>tabindex="0"</code>. Text changes to "Mute" on activation.</li>
+        <li>Volume control bar:  <code>&ltdiv&gt</code> with the following  attributes: <code>aria-label="Volume Control"</code>, <code>tabindex="0"</code>, <code>aria-valumin="0"</code>, <code>aria-valuenow="[dynamic]"</code>, <cdoe>aria-valuemax="100"</cdoe>, <code>aria-valuetext="Volume is [dynamic]"</code>.</li>
+        <li>Picture-in-picture: <code>&ltbutton&gt</code> with the following  attributes: <code>aria-label="Play Picture-in-Picture"</code>, <code>tabindex="0"</code>.</li>
+        <li>Full Screen: <code>&ltbutton&gt</code> with the following  attributes: <code>aria-label="Enter full screen"</code>, <code>tabindex="0"</code>. Text changes to "Exit full screen" on activation.</li>
+     </ul>
+
+     <h4>Problems with this implementation</h4>
+     <p>First off, it's completely baffling that all of the controls are so half-hazardly hidden on Desktop view. Why even hide them at all? Probably for aesthetic purposes? Providing controls does meet Pause, Stop, Hide. But the half-hazard hidden-ness of these controls on Desktop is a failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum">SC 2.4.11 Focus Not Obscured (Minimum)</a>.</p>
+     <p>I believe that Focus Not Obscured doesn't quite convey the direness of the problem, and am thinking about whether this fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum">SC 2.5.8 Target Size (Minimum)</a>. Because there actually is no target here, and therefore no measurable target size that can be failed for being too small. Because it's literally gone. The 2.5 guideline's intent is that all components should be operable by pointer devices, but there's nothing that explicitly checks whether that is the case. It kinda just assumes. I'm satisfied enough by just failing this under Focus Not Obscured, but it's weird that there's nothing else that address this.</p>
+     <p>This video-only component does not at least provide description identification of the non-text content, which fails <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content">SC 1.1.1 Non-Text Content</a>.</p>
+     <p>And of course, we come to all of failures for <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">SC 4.1.2 Name, Role, Value</a> on account of missing roles. The progress bar, volume control bar, and wrapper div all fail due to missing roles. The progress bar and wrapper div fail due to missing names.</p>
+
+
+
+
+    
+
+
+
+
+      <p class="back-up"><a href="#contents">Back to Notes contents.</a></p>
+      </div>
+
 
     <hr aria-hidden="true"><div class="note">
     
-      <h2 id="note-101">Uncertainty</h2>
-      <p>Noted Friday, February 14, 2025</p>
-      <p></p>
-  
+      <h2 id="note-101">While Auditing Today, I Learned... Day 1/2: Dialog Dilemna and Shocking Subnavigations</h2>
+      <p>Noted Saturday, February 15, 2025</p>
+      <h3>Introducing WATIL</h3>
+      <p>I've had a few days to marinate in the sauce of uncertainty over what direction I should take. I've decided that I seriously want to zero in on my WCAG auditing skills. This series is called "While Auditing Today, I Learned" or WATIL for short. Each entry will tackle new wacky WCAG cases that I will (hopefully) solve out in the open.</p>
+      <p>I'll never actually link to the site in question. Instead, I'll try my best to learn how to describe the pattern as precisely and technically as possible each time.</p>
+      <p>I'm also not going to be able to test every single criteria each time. I will get bogged down easily if I set that out for myself. The goal instead is to identify the areas that are most problematic and problem-solve through weird code things, WCAG wording, and valid ARIA implementation.</p>
+
+      <h3>Intro to the ME Museum Page</h3>
+      <p>Today, we've got a website for a small local museum. It's built in Wix.</p>
       
+      <h3>Big Obvious Failures</h3>
+      <p>This site was not built to do reflow. Its mobile view was also implemented weirdly. Normally, you can just minimize a browser window or zoom to enter a mobile view, because it knows what CSS to use base on media queries. It appears that the ME Museum page determines upon loading whether the view is for mobile or desktop, and then no matter how much you try to resize things, it will not show you the alternative layout. Additionally, its iPad view hides content by default. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">Success Criterion 1.4.10 Reflow</a>.</p>
+      <p>All the images on this site derive their <code>alt</code> text from their file names, and they aren't good file names. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">Success Criterion 1.1.1 Non-text Content</a>.</p>
+
+      <p>Headings on this site are really random. Sometimes they are semantic, sometimes they are not. Sometimes there are several <code>h2</code> on the page with no <code>h1</code>, sometimes there are several <code>h1</code> and no <code>h2</code> at all. They are absent in several key user journeys (such as trying to find the hours that the facility is open, or finding the admission fees, where headings like 'hours of operation' and 'admission' are all styled without semantics). Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">Success Criterion 1.3.1 Info and Relationships</a>.</p>
+
+      <p>Running axe-core and WAVE, I got no contrast errors. But there actually was a contrast error hidden in the footer that went undetected. It was so bad that I could tell it was a contrast error just by looking at it. It was <code>rgb(67, 100, 134)</code> foreground with <code>rgb(0, 46, 93)</code> background with small text, contrast of 2.19:1. It looks like it didn't get detected because the 'background color' is actually set by an element that was overlayed onto all of the other elements. As far as axe and WAVE knew, the background was white text. I tracked down which inline style sheet was responsible for this, and file name indicates that it is part of some Bootstrap class.</p>
+      <p>In addition to this weird contrast error, there was another prominent link that had below-minimum contrast on hover. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">Success Criterion 1.4.3 Contrast (Minimum)</a>.</p>
+
+      <p>I've identified two components that could be problematic, but I actually am not as versed in the ARIA-specification as I need to be to assess whether these roles are being used correctly. Let's tackle them one at a time.</p>
+      <h3>Custom Modal Dialogue</h3>
+      <h4>A basic description</h4>
+      <p>There is a sticky button attached to the lower right side of the page labelled 'Visit Us.' Opening it causes a modal to open up, with various visitation details and a Google Map iframe.</p>
+      <h4>Implementation description</h4>
+      <p>The 'button' that triggers the modal is not a <code>button</code> element. It's an anchor element with <code>role="button"</code> and <code>aria-disabled="false"</code>. </p>
+      <p>Click events on the button causes all the existing content on the page to get <code>tabindex="-1"</code> and a new window to appear, overlaid on the existing page.</p>
+      <p>The wrapper for the popup has <code>role="dialog"</code> and <code>aria-modal="true"</code>.</p>
+      <p>The first element in this wrapper is a <code>&ltdiv&gt</code> with <code>tabindex="0"</code> and <code>role="button"</code> along with both the <code>title</code> and <code>aria-label</code> attributes set to "Back to site.</p>
+      <p>The modal can be dismissed by pressing the Esc key.
+      <h4>Problems with this implementation</h4>
+      <p>Ideally, the button triggering the modal dialog should have the role <code>aria-haspopup="dialog"</code> but this is not technically a WCAG failure.</p>
+      <p>The dialog itself does not have an accessible name. On Orca, this creates an experience where the entire contents of the dialog are read out when the dialog is opened, but no dialog role is actually conveyed. Can't currently test this with NVDA because my virtual machine is broken. I am inclined to fail this under <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">SC 4.1.2 Name, Role, Value</a>, though <a href="https://dequeuniversity.com/rules/axe/4.3/aria-dialog-name">Deque categorizes this as a best practice failure</a> and not a WCAG failure. The <a href="https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/">APG page on accessible names</a> uses language that implies accessible names are required for dialogs as a matter of WCAG compliance. The dialog element requires an accessible name as a matter of HTML validation, while the <a href="https://github.com/w3c/aria/issues/1421#issuecomment-791469072">dialog role does not require an acccesible name to be validated</a>. In any case, the dialog would be made more accessible if <code>aria-labelledby</code> was used on the dialog wrapper to point to the heading element that is in there.</p>
+      <p>Most guides for building custom dialogs suggests some form of focus management. There is no focus management within the dialog itself, though closing the dialog lands us back on the button that opened it.</p>
+      <p>There is a coding error here. Going backwards in the tab order causes the navigation to appear on top of the modal dialogue. A mouse user can click on the navigation in this state, a keyboard user cannot get to it. Ideally, nobody should be able to access it and it should remain hidden.</p>
+      <p>Lastly, the 'close' button has the <code>aria-label</code> of 'Back to Menu' instead of 'Close,' which may cause usability issues.</p>
+      <h3>A Weird JavaScript Subnavigation</h3>
+      <p>I had to bring in my software engineering friend to actually determine what was going on here. This one is a doozy.</p>
+      <h4>Basic Description</h4>
+      <p>There are two nested subnavigations in the main nav, and they are coded in the same way.</p>
+      <p>The excerpt we are looking at have these text nodes:</p>
+      <ul>
+        <li>Events</li>
+        <li>Blog
+          <ul>
+            <li>Posts</li>
+          </ul>
+        </li>
+        <li>Support
+            <ul>
+              <li>Donate</li>
+            </ul>
+        </li>
+      </ul>
+      <p>Clicking on 'Events' brings us to the Events page. Clicking or hovering 'Blog' and 'Support' only opens up the subnavigations. Blog and Support are basically buttons and do not link to pages. Instead, the subnavigation nodes are links.</p>
+
+      <p> In keyboard navigation, all elements open naturally as one moves through the natural tab order. We go from Blog, inside the first subnav to Posts, back to the main nav for Support, inside the second subnav to Donate.</p>
+      <p>Just straight-up removed from the accessibility tree.</p>
+      <h4>Implementation description</h4>
+      <p>It is marked up as a unordered list. While the links are all normal, Blog and Support are <code>div</code> with <code>tabindex="0"</code> and <code>aria-hasapopup="false"</code> and no semantic role assigned. </p>
+      <p>The subnavigation unordered list elements have <code>aria-hidden="true"</code> and the inline style <code>display: none</code>. Whenever a subnavigation needs to be displayed, the Wix site creates a clone of the subnavigation node at the bottom of the DOM, uses <code>position: absolute</code> to place it underneath the button that opened it, and manages focus accordingly.</p>
+      <h4>Problems with this implementation</h4>
+      <p>I cannot fathom why it does this weird duplication trick. In any case, it is totally unusable when JS is disabled.</p>
+      <p>The button needs to be a semantic button or have a button role assigned to it. On Orca, no semantic role means that the name is also not read out in this case. Failure of  <a href="https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html">SC 4.1.2 Name, Role, Value</a>.</p>
+      <p>The content that appears on hover has no alternative dismissal mechanism than removing the pointer. Failure of <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">SC 1.4.13 Content on Hover or Focus</a></p>    
       <p class="back-up"><a href="#contents">Back to Notes contents.</a></p>
       </div>
 
