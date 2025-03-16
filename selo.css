@@ -78,6 +78,10 @@ details
     color: #463403;
 
   }
+  .note:nth-of-type(4n+3) h3{
+    color: #ce4302;
+  }
+
   
   nav ul:first-child li a{
     color: var(--walo);
@@ -153,6 +157,7 @@ details
     color: var(--walo);
     
   }
+  
   nav li a:visited, nav li a{
     color: var(--walo);
     border-color: var(--walo);
@@ -182,6 +187,10 @@ header .skip{
   justify-content: center;
   top: 2em;
   margin-top: -2em;
+}
+header .skip  a{
+  text-decoration: none;
+  font-weight: 500;
 }
 html {
   font-family: sans-serif;
