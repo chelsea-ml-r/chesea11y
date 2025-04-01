@@ -1,0 +1,1 @@
+document.getElementById("tally").innerText = document.getElementsByTagName("dd").length;

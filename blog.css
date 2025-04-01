@@ -88,6 +88,13 @@ table.broken, .broken td, .broken th{
 }
 
 
+.books dd{
+  margin-inline-start: 2em;
+}
+.books dt{
+  color: var(--accent-three);
+}
+
 
 pre{
   white-space: pre-wrap;
